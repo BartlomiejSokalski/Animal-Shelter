@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/scss/pages/_loginPage.scss" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<div class="container-main">
+    <div class="login-form">
+        <h1>Login</h1>
+        <div class="input-box">
+            <i class='bx bxs-user'></i>
+            <input type="text" placeholder="Nazwa Użytkownika" required>
+
+        </div>
+        <div class="input-box"> <i class='bx bxs-lock-alt' ></i>
+            <input type="password" placeholder="Hasło" required >
+
+        </div>
+        <div class="remember-forgot">
+            <label><input type="checkbox">Zapamiętaj mnie</label>
+
+        </div>
+
+        <button class="login-btn input-box"><a href="userPanel.html"> Login</a></button>
+    </div>
+
+</div>
+<script type="module" src="src/js/app.jsx"></script>
+</body>
+</html>

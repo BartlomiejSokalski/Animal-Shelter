@@ -1,0 +1,10 @@
+@import "normalize";
+@import "layout/mainContainer";
+@import "layout/mainHeader";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: cursive;
+}
