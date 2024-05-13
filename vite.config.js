@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 /**
  * Path to exercise folder
  */
-const exercisePath = "C:\\Users\\Pc\\ONL_FER_S_22_Projekt_koncowy";
+const exercisePath = "C:\\Users\\Pc\\Animal-Shelter";
 
 /**
  * Don't change those lines below

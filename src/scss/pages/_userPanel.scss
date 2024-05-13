@@ -1,0 +1,94 @@
+.container-main {
+  max-width:100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-image: url("https://t3.ftcdn.net/jpg/01/96/83/20/360_F_196832044_ISa3G24W2dmiW5X94hJq59Cs8uHat8I1.jpg");
+  overflow: auto;
+
+
+}
+.userPanelHeader {
+  z-index: 99999999;
+  width: 100%;
+  height: 5rem;
+  border: 20px dashed black;
+  border-radius: 5px;
+  font-size: 36px;
+  opacity: 1;
+  background-color: red;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userPanelHeader:focus {
+ outline: none;
+}
+
+.aside {
+  width: 20vh;
+  height: 85vh;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+}
+
+.aside-content {
+  font-size: 16px;
+  padding: 1rem;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Dodane */
+}
+
+.aside-content:hover {
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Dodane */
+  padding: 2rem; /* Dodane, jeśli chcesz zachować padding po powiększeniu */
+  background-color: white;
+  font-size: 32px;
+}
+
+
+.userPanelMainContent {
+  width: 175vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.userPanelDogCards {
+  margin: 3rem;
+  justify-content: space-evenly;
+
+}
+.userPanelDogCards {
+  width: 300px;
+  height: 300px;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+.userPanelDogCards:hover {
+  width: 330px;
+  height: 330px;
+  box-shadow: 5px 5px 5px 10px lightcoral;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  transition: width 0.3s ease-out, height 0.3s ease-out;
+}
+
+.userPanelDogCards:hover img {
+  width: 110%;
+  height: 110%;
+}
+
+p {
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+
+}
