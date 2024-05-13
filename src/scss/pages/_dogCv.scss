@@ -2,15 +2,17 @@
   font-family: cursive;
 }
 
+
 .container-main {
   max-width:100%;
   display: flex;
   flex-wrap: wrap;
-  background-image: url("https://t3.ftcdn.net/jpg/01/96/83/20/360_F_196832044_ISa3G24W2dmiW5X94hJq59Cs8uHat8I1.jpg");
-  overflow: auto;
+
 
 
 }
+
+
 .dogCvHeader {
   z-index: 99999999;
   width: 100%;
@@ -20,13 +22,13 @@
   font-size: 36px;
   opacity: 1;
   background-color: red;
-  color: white;
+  color: red;
   display: flex;
-  justify-content: center;
+
   align-items: center;
 }
 .dogCvHeader:focus {
- outline: none;
+  outline: none;
 }
 
 .aside {
@@ -49,50 +51,63 @@
   background-color: white;
   font-size: 32px;
 }
-
-
-.userPanelMainContent {
+.dogCv {
+  background-color: green;
   width: 175vh;
   display: flex;
+}
+.dogCvAside {
+  width: 35vh;
+  height: 81vh;
+  background-color: yellow;
+  display: flex;
+
+  margin: 1rem;
+  flex-wrap: wrap;
+  align-content: start;
+}
+.dogCvAsideFav {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.dogCvMainContentHeader {
+  background-color: blue;
+  width: 95%;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: start;
+
+}
+
+
+
+img {
+  width: 300px;
+  height: 300px;
+}
+
+.dogCvMainContentHistory {
+  display: flex;
+  justify-content: center;
+
   flex-wrap: wrap;
 }
 
-
-.userPanelDogCards {
-  margin: 3rem;
-  justify-content: space-evenly;
-
-}
-.userPanelDogCards {
-  width: 300px;
-  height: 300px;
-  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-}
-
-.userPanelDogCards:hover {
-  width: 330px;
-  height: 330px;
-  box-shadow: 5px 5px 5px 10px lightcoral;
-}
-
-img {
+h2 {
   width: 100%;
-  height: 100%;
-  transition: width 0.3s ease-out, height 0.3s ease-out;
-}
-
-.userPanelDogCards:hover img {
-  width: 110%;
-  height: 110%;
-}
-
-p {
-  font-size: 15px;
   display: flex;
   justify-content: center;
-  align-items: center;
-
-
-
-
+}
+.dogCvMainContentPrice {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+h3 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
