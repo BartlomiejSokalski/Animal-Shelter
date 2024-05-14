@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {createRoot} from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import UserPanel from "./userPanel.jsx";
 
 const DogCvPage = () => {
@@ -19,19 +19,19 @@ const DogCvPage = () => {
                 <div className="dogCvHeaderLogo">Logo</div>
                 <div className="localName">{username && `Witaj, ${username}!`}</div>
                 <div className={'dogCvHeaderButtons'}>
-                <button>Zarezerwój</button>
-                <button>Adoptuj</button>
+                    <a href="dogCalendar.html"><button>Zarezerwój</button></a>
+                    <button>Adoptuj</button>
                 </div>
             </header>
             <div className="aside">
-                <div className="aside-content"> galeria psów</div>
+                <button className="aside-content"><a href={"userPanel.html"}>galeria psów</a></button>
                 <div className="aside-content"> Zarezerwowane psy</div>
                 <div className="aside-content"> pogoda</div>
-
             </div>
 
             <div className="dogCv">
-                <div className="dogCvAside"><img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg" alt=""/>
+                <div className="dogCvAside">
+                    <img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg" alt=""/>
                     <div>co robie w wolnym czasie</div>
                     <ul>
                         <li>duzo szczekam</li>
@@ -50,9 +50,7 @@ const DogCvPage = () => {
                         <li>włosy</li>
                         <li>średni pies</li>
                         <li>wykastrowany</li>
-
                     </ul>
-
                 </div>
                 <div className="dogCvMainContentHeader">
                     <h1>Cześć jestem Dog1 name!, nie moge sie doczekać adopcji</h1>
@@ -70,10 +68,9 @@ const DogCvPage = () => {
                         <h3>  tutaj jest wiecej moich zdjęć!</h3>
                         <div className="gallery">
                             <img src="" alt=""/>
-                                <img src="" alt=""/>
-                                    <img src="" alt=""/>
-                                        <img src="" alt=""/>
-
+                            <img src="" alt=""/>
+                            <img src="" alt=""/>
+                            <img src="" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -83,6 +80,7 @@ const DogCvPage = () => {
         </div>
     );
 };
+
 const dududupson = document.querySelector('.userPanel')
 
 const root = createRoot(dududupson)

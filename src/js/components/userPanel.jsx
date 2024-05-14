@@ -18,7 +18,7 @@ const UserPanel = () => {
                 <div className="localName">{username}</div>
             </header>
             <div className="aside">
-                <div className="aside-content"> galeria psów</div>
+                <button className="aside-content"><a href={'userPanel.html'}></a>galeria psów </button>
                 <div className="aside-content"> Zarezerwowane psy</div>
                 <div className="aside-content"> pogoda</div>
                 <div className="aside-content"> kalkulator</div>
