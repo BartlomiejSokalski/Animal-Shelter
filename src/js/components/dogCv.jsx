@@ -24,8 +24,8 @@ const DogCvPage = () => {
                 </div>
             </header>
             <div className="aside">
-                <button className="aside-content"><a href={"userPanel.html"}>galeria psów</a></button>
-                <div className="aside-content"> Zarezerwowane psy</div>
+                <a href={'userPanel.html'} className="aside-content">galeria psów</a>
+                <a href={'reservedDogs.html'} className="aside-content">Zarezerwowane psy</a>
                 <div className="aside-content"> pogoda</div>
             </div>
 
