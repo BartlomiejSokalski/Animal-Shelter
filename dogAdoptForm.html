@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/scss/pages/_dogAdoptForm.scss" />
+</head>
+<body>
+<div class="container-main">
+    <header class="dogCvHeader">
+        <div class="localName"></div>
+    </header>
+    <div class="aside">
+        <button class="aside-content"><a href="userPanel.html">galeria psów</a></button>
+        <div class="aside-content">Zarezerwowane psy</div>
+        <div class="aside-content">pogoda</div>
+    </div>
+    <form class="dogAdoptionForm">
+
+        <div class="dogAdoptionFormSelect">
+           <label>wybierz psa</label>
+            <select>
+                <option value="select"></option>
+                <option value="select">brajan</option>
+                <option value="select">kubson</option>
+            </select>
+            <div class="dogAdoptionFormCheckbox">
+            <input type="checkbox"> miesieczny zapas karmy
+            <input type="checkbox"> dopasowana obroża
+            <input type="checkbox"> dopasowana smycz
+            </div>
+            <div class="dogAdoptionFormOwner">Dane właściciela
+            <div class="dogAdoptionFormInput">
+                <label>imie</label>
+                <input type="text">
+                <label>nazwisko</label>
+                <input type="text"><br>
+                <label>ulica</label>
+                <input type="text">
+                <label>nr domu</label>
+                <input type="text"> <br>
+                <label>adress email</label>
+                <input type="text">
+                <label>telefon</label>
+                <input type="text">
+            </div>
+            </div>
+            <button>Zaadoptuj</button>
+        </div>
+    </form>
+</div>
+<script type="module" src="src/js/components/dogAdoptForm.jsx"></script>
+</body>
+</html>
