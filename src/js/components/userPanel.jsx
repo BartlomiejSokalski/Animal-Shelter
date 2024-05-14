@@ -2,9 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import {createRoot} from "react-dom/client";
 
+// Stan przechowujący nazwę użytkownika
 const UserPanel = () => {
     const [username, setUsername] = useState('');
-
+// Efekt pobierający nazwę użytkownika z Local Storage przy pierwszym renderowaniu
     useEffect(() => {
         const storedUsername = localStorage.getItem('username');
         if (storedUsername) {
@@ -17,6 +18,7 @@ const UserPanel = () => {
             <header className="dogCvHeader">
                 <div className="localName">{username}</div>
             </header>
+            {/*boczny pasek (nakładka)*/}
             <div className="aside">
                 <a href={'userPanel.html'} className="aside-content">galeria psów</a>
                 <a href={'reservedDogs.html'} className="aside-content">Zarezerwowane psy</a>
@@ -71,7 +73,7 @@ const UserPanel = () => {
                         <p>kapen</p>
                     </a>
                 </div>
-                {/* Pozostałe karty psów */}
+
             </div>
         </div>
     );
