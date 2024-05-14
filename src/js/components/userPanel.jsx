@@ -20,8 +20,8 @@ const UserPanel = () => {
             <div className="aside">
                 <a href={'userPanel.html'} className="aside-content">galeria psów</a>
                 <a href={'reservedDogs.html'} className="aside-content">Zarezerwowane psy</a>
-                <div className="aside-content"> pogoda</div>
-                <div className="aside-content"> kalkulator</div>
+                <a href={'weather.html'} className="aside-content">pogoda</a>
+                <a href={'calculator.html'} className="aside-content">kalkulator</a>
                 <div> filtry</div>
             </div>
             <div className="userPanelMainContent">
