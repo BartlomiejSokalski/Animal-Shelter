@@ -20,7 +20,7 @@ const DogCvPage = () => {
                 <div className="localName">{username && `Witaj, ${username}!`}</div>
                 <div className={'dogCvHeaderButtons'}>
                     <a href="dogCalendar.html"><button>Zarezerwój</button></a>
-                    <button>Adoptuj</button>
+                    <a href="dogAdoptForm.html"><button>Adoptuj</button></a>
                 </div>
             </header>
             <div className="aside">
