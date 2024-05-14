@@ -1,27 +1,33 @@
 import React, { useState } from 'react';
-import {createRoot} from "react-dom/client";
+import { createRoot } from "react-dom/client";
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [remember, setRemember] = useState(false);
+    const [error, setError] = useState('');
 
     const handleLogin = () => {
+        // Walidacja loginu
+        if (username.length < 5 || username.length > 11) {
+            setError('Login musi mieć od 5 do 11 znaków');
+            return;
+        }
+
+        // Walidacja hasła
+        if (!/(?=.*[A-Z])/.test(password) || password.length < 5 || password.length > 11) {
+            setError('Hasło musi zawierać co najmniej jedną dużą literę oraz mieć od 5 do 11 znaków');
+            return;
+        }
+
         // Sprawdź poprawność danych logowania (np. wysłanie do serwera)
 
         // Jeśli dane logowania są poprawne, zapisz je w Local Storage
-        if (remember) {
-            localStorage.setItem('username', username);
-            localStorage.setItem('password', password);
-        } else {
-            // W przypadku, gdy nie zaznaczono opcji "Zapamiętaj mnie", usuń dane z Local Storage
-            localStorage.removeItem('username');
-            localStorage.removeItem('password');
-        }
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
 
         // Przekieruj użytkownika do strony użytkownika po zalogowaniu
         window.location.href = 'userPanel.html';
-
     };
 
     return (
@@ -48,17 +54,9 @@ const LoginPage = () => {
                         required
                     />
                 </div>
-                <div className="remember-forgot">
-                    <label>
-                        <input
-                            type="checkbox"
-                            checked={remember}
-                            onChange={(e) => setRemember(e.target.checked)}
-                        />
-                        Zapamiętaj mnie
-                    </label>
-                </div>
+
                 <button className="login-btn input-box" onClick={handleLogin}>Login</button>
+                {error && <div className="error">{error}</div>}
             </div>
         </div>
     );

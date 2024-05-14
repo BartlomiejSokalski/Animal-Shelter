@@ -31,6 +31,46 @@ const UserPanel = () => {
                         <p>Brajan</p>
                     </a>
                 </div>
+                <div className="userPanelDogCards">
+                    <a href="">
+                        <img src="https://hips.hearstapps.com/ghk.h-cdn.co/assets/16/08/gettyimages-530330473.jpg?crop=0.659xw:0.990xh;0.123xw,0.00779xh&resize=980:*" alt=""/>
+                        <p>Dudek</p>
+                    </a>
+                </div>
+                <div className="userPanelDogCards">
+                    <a href="">
+                        <img src="https://www.cdc.gov/healthypets/images/pets/cute-dog-headshot.jpg?_=42445" alt=""/>
+                            <p>alojzy</p>
+                        </a>
+                    </div>
+                <div className="userPanelDogCards">
+                    <a href=""><img src="https://www.cdc.gov/healthypets/images/pets/cute-dog-headshot.jpg?_=42445" alt=""/>
+                        <p>marek</p>
+                    </a>
+                </div>
+                <div className="userPanelDogCards">
+                    <a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9d7B1q2N8oAorqXC8zdbbVqJYKJjbWDGyd_KdfSncBQ&s" alt=""/>
+                        <p>meniu</p>
+                    </a>
+                </div>
+                <div className="userPanelDogCards">
+                    <a href="">
+                        <img src="https://b1157417.smushcdn.com/1157417/wp-content/uploads/2023/06/cute-french-bulldog-close-up-eye-contact-outdoors-825x550.jpg?lossy=1&strip=1&webp=0" alt=""/>
+                        <p>czorej</p>
+                    </a>
+                </div>
+                <div className="userPanelDogCards">
+                    <a href="">
+                        <img src="https://media.wired.com/photos/65651b7225ccbd8cc7d5403c/master/pass/Science-Life-Extension-Drug-for-Big-Dogs-Is-Getting-Closer-1330545769.jpg" alt=""/>
+                        <p>kraus</p>
+                    </a>
+                </div>
+                <div className="userPanelDogCards">
+                    <a href="">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0QAflBhYPp957wxpJ-Q0bbssUBEKkSrCPmRZLn6-qHA&s" alt=""/>
+                        <p>kapen</p>
+                    </a>
+                </div>
                 {/* Pozostałe karty psów */}
             </div>
         </div>
