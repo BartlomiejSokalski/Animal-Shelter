@@ -1,0 +1,51 @@
+* {
+  font-family: cursive;
+}
+
+.container-main {
+  max-width:100%;
+  display: flex;
+  flex-wrap: wrap;
+
+
+
+
+
+}
+.dogCvHeader {
+  z-index: 99;
+  width: 100%;
+  height: 5rem;
+  border-radius: 5px;
+  font-size: 36px;
+  opacity: 1;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dogCvHeader:focus {
+  outline: none;
+}
+
+.aside {
+  width: 20vh;
+  height: 85vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.aside-content {
+  font-size: 16px;
+  padding: 1rem;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Dodane */
+}
+
+.aside-content:hover {
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+  padding: 1rem; /* Dodane, jeśli chcesz zachować padding po powiększeniu */
+  background-color: lightcoral;
+  font-size: 23px;
+
+}
