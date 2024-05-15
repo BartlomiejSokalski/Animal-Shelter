@@ -174,8 +174,8 @@ const Calculator = () => {
             </header>
             <div className="aside">
                 <button className="aside-content"><a href="userPanel.html">galeria psów</a></button>
-                <div className="aside-content">Zarezerwowane psy</div>
-                <div className="aside-content">pogoda</div>
+                <a href={'reservedDogs.html'} className="aside-content">Zarezerwowane psy</a>
+                <a href={'weather.html'} className="aside-content">pogoda</a>
             </div>
             <div className="calculator">
                 <div>
