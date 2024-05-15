@@ -20,6 +20,7 @@
   font-size: 36px;
   opacity: 1;
   color: black;
+  background-color: red;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,4 +49,25 @@
   background-color: lightcoral;
   font-size: 23px;
 
+}
+
+.calculator {
+  margin: 1rem;
+  width: 80%;
+
+}
+
+
+.calulatorSelect {
+  padding: 1rem;
+}
+.calculatorLabel {
+  padding: 1rem;
+}
+.calculatorInput {
+  padding: 1rem;
+}
+.calculator {
+  display: flex;
+  flex-direction: column;
 }

@@ -2,19 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { createRoot } from "react-dom/client";
 
 const DogCalendar = () => {
+    // Stan przechowujący wybrane daty
     const [selectedDates, setSelectedDates] = useState(() => {
         const storedDates = localStorage.getItem('selectedDates');
-        return storedDates ? JSON.parse(storedDates) : [];
+        return storedDates ? JSON.parse(storedDates) : []; // Parsowanie zapisanych dat z local storage
     });
 
+    // Obsługa kliknięcia na dzień kalendarza
     const handleDayClick = (date) => {
         const updatedSelectedDates = selectedDates.includes(date)
-            ? selectedDates.filter(d => d !== date)
-            : [...selectedDates, date];
-        localStorage.setItem('selectedDates', JSON.stringify(updatedSelectedDates));
-        setSelectedDates(updatedSelectedDates);
+            ? selectedDates.filter(d => d !== date) // Usunięcie daty, jeśli jest już wybrana
+            : [...selectedDates, date]; // Dodanie daty, jeśli nie jest jeszcze wybrana
+        localStorage.setItem('selectedDates', JSON.stringify(updatedSelectedDates)); // Zapisanie dat do local storage
+        setSelectedDates(updatedSelectedDates); // Uaktualnienie stanu
     };
 
+    // Funkcja sprawdzająca, czy data jest wybrana
     const isDateSelected = (date) => {
         return selectedDates.includes(date);
     };
@@ -27,14 +30,19 @@ const DogCalendar = () => {
             <div className="aside">
                 <a href={'userPanel.html'} className="aside-content">galeria psów</a>
                 <a href={'reservedDogs.html'} className="aside-content">Zarezerwowane psy</a>
-                <div className="aside-content">pogoda</div>
+                <a href={'weather.html'} className="aside-content">pogoda</a>
+                <a href={'calculator.html'} className="aside-content">kalkulator</a>
             </div>
 
 
-
+       {/*główny div z kalendarzem */}
         <div className="dogCalendar">
             <div className="dogCalendarDate">02.2025</div>
+
+
             <div className="dogCalendarWeek"> week1
+
+                {/*guziki w kalendarzu */}
                 <button
                     className={isDateSelected('01.02') ? 'dogCalendarDay selected' : 'dogCalendarDay'}
                     onClick={() => handleDayClick('01.02')}

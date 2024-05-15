@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from "react-dom/client";
-import UserPanel from "./userPanel.jsx";
+import UserPanel from "./userPanel.jsx"; // Import komponentu UserPanel
 
 const DogCvPage = () => {
-    const [username, setUsername] = useState('');
+    const [username, setUsername] = useState(''); // Stan dla nazwy użytkownika
 
     useEffect(() => {
-        // Pobierz nazwę użytkownika z Local Storage
+        // Efekt pobierający nazwę użytkownika z local storage przy załadowaniu komponentu
         const storedUsername = localStorage.getItem('username');
         if (storedUsername) {
             setUsername(storedUsername);
         }
     }, []); // Pobieranie danych tylko raz przy załadowaniu komponentu
-
     return (
         <div className="container-main">
             <header className="dogCvHeader">
@@ -21,14 +20,17 @@ const DogCvPage = () => {
                 <div className={'dogCvHeaderButtons'}>
                     <a href="dogCalendar.html"><button>Zarezerwój</button></a>
                     <a href="dogAdoptForm.html"><button>Adoptuj</button></a>
+
                 </div>
             </header>
+            {/*boczny pasek zakładek*/}
             <div className="aside">
                 <a href={'userPanel.html'} className="aside-content">galeria psów</a>
                 <a href={'reservedDogs.html'} className="aside-content">Zarezerwowane psy</a>
-                <div className="aside-content"> pogoda</div>
+                <a href={'weather.html'} className="aside-content">pogoda</a>
+                <a href={'calculator.html'} className="aside-content">kalkulator</a>
             </div>
-
+            {/*info pod zdjeciem psa*/}
             <div className="dogCv">
                 <div className="dogCvAside">
                     <img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg" alt=""/>
@@ -52,6 +54,7 @@ const DogCvPage = () => {
                         <li>wykastrowany</li>
                     </ul>
                 </div>
+                {/*główny text psa*/}
                 <div className="dogCvMainContentHeader">
                     <h1>Cześć jestem Dog1 name!, nie moge sie doczekać adopcji</h1>
                     <p>jestem engergiczny i zabawny uwielbiam gryźć koty i kapcie ale za to jest przesłodki i nie jem aż tak dużo</p>

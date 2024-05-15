@@ -4,7 +4,6 @@ import { createRoot } from "react-dom/client";
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [remember, setRemember] = useState(false);
     const [error, setError] = useState('');
 
     const handleLogin = () => {
@@ -20,7 +19,7 @@ const LoginPage = () => {
             return;
         }
 
-        // Sprawdź poprawność danych logowania (np. wysłanie do serwera)
+
 
         // Jeśli dane logowania są poprawne, zapisz je w Local Storage
         localStorage.setItem('username', username);
@@ -31,6 +30,7 @@ const LoginPage = () => {
     };
 
     return (
+        // login form
         <div className="container-main">
             <div className="login-form">
                 <h1>Login</h1>
@@ -63,7 +63,6 @@ const LoginPage = () => {
 };
 
 const container = document.querySelector('.local')
-
 const root = createRoot(container)
 root.render(<LoginPage/>)
 export default LoginPage;
