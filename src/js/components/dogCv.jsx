@@ -8,7 +8,7 @@ const DogCvPage = () => {
     const [selectedDogName, setSelectedDogName] = useState('');
     const [selectedDogImageUrl, setSelectedDogImageUrl] = useState('');
 
-    const [username, setUsername] = useState(''); // Stan dla nazwy użytkownika
+
 
 
     useEffect(() => {
