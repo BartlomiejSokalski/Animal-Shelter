@@ -4,21 +4,29 @@ import { createRoot } from "react-dom/client";
 const DogCalendar = () => {
     const [selectedDates, setSelectedDates] = useState(() => {
         const storedDates = localStorage.getItem('selectedDates');
-        return storedDates ? JSON.parse(storedDates) : [];
+        return storedDates ? JSON.parse(storedDates) : {};
     });
 
     const handleDayClick = (date) => {
-        const updatedSelectedDates = selectedDates.includes(date)
-            ? selectedDates.filter(d => d !== date)
-            : [...selectedDates, date];
+        const updatedSelectedDates = { ...selectedDates };
+        const selectedDog = localStorage.getItem('selectedDogName');
+
+        if (!updatedSelectedDates[selectedDog]) {
+            updatedSelectedDates[selectedDog] = [];
+        }
+
+        updatedSelectedDates[selectedDog] = updatedSelectedDates[selectedDog].includes(date)
+            ? updatedSelectedDates[selectedDog].filter(d => d !== date)
+            : [...updatedSelectedDates[selectedDog], date];
+
         localStorage.setItem('selectedDates', JSON.stringify(updatedSelectedDates));
         setSelectedDates(updatedSelectedDates);
     };
 
     const isDateSelected = (date) => {
-        return selectedDates.includes(date);
+        const selectedDog = localStorage.getItem('selectedDogName');
+        return selectedDates[selectedDog] && selectedDates[selectedDog].includes(date);
     };
-
     return (
         <div className="container-main">
             <header className="dogCvHeader">

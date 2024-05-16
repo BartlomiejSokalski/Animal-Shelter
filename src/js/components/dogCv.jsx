@@ -4,6 +4,8 @@ import UserPanel from "./userPanel.jsx";
 
 const DogCvPage = () => {
     const [username, setUsername] = useState('');
+    const [selectedDogName, setSelectedDogName] = useState('');
+    const [selectedDogImageUrl, setSelectedDogImageUrl] = useState('');
 
     useEffect(() => {
         // Pobierz nazwę użytkownika z Local Storage
@@ -11,7 +13,30 @@ const DogCvPage = () => {
         if (storedUsername) {
             setUsername(storedUsername);
         }
+
+        // Pobierz imię psa z Local Storage
+        const storedDogName = localStorage.getItem('selectedDogName');
+        if (storedDogName) {
+            setSelectedDogName(storedDogName);
+        }
+
+        // Pobierz URL obrazka psa z Local Storage
+        const storedDogImageUrl = localStorage.getItem('selectedDogImageUrl');
+        if (storedDogImageUrl) {
+            setSelectedDogImageUrl(storedDogImageUrl);
+        }
     }, []); // Pobieranie danych tylko raz przy załadowaniu komponentu
+
+    // Funkcja obsługująca kliknięcie w psa
+    const handleDogClick = (dogName, imageUrl) => {
+        // Zapisz imię psa do lokalnego przechowywania (localStorage)
+        localStorage.setItem('selectedDogName', dogName);
+        // Zapisz URL obrazka psa do lokalnego przechowywania (localStorage)
+        localStorage.setItem('selectedDogImageUrl', imageUrl);
+        // Ustaw aktualnie wybranego psa
+        setSelectedDogName(dogName);
+        setSelectedDogImageUrl(imageUrl);
+    };
 
     return (
         <div className="container-main">
@@ -31,7 +56,8 @@ const DogCvPage = () => {
 
             <div className="dogCv">
                 <div className="dogCvAside">
-                    <img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg" alt=""/>
+                    {/* Wyświetl obrazek wybranego psa */}
+                    <img src={selectedDogImageUrl} alt="" />
                     <div>co robie w wolnym czasie</div>
                     <ul>
                         <li>duzo szczekam</li>
@@ -53,7 +79,8 @@ const DogCvPage = () => {
                     </ul>
                 </div>
                 <div className="dogCvMainContentHeader">
-                    <h1>Cześć jestem Dog1 name!, nie moge sie doczekać adopcji</h1>
+                    {/* Wyświetl imię wybranego psa */}
+                    <h1>Cześć jestem {selectedDogName}!, nie moge sie doczekać adopcji</h1>
                     <p>jestem engergiczny i zabawny uwielbiam gryźć koty i kapcie ale za to jest przesłodki i nie jem aż tak dużo</p>
 
                     <div className="dogCvMainContentHistory">
@@ -67,10 +94,11 @@ const DogCvPage = () => {
                     <div className="dogCvNainContetGallery">
                         <h3>  tutaj jest wiecej moich zdjęć!</h3>
                         <div className="gallery">
-                            <img src="" alt=""/>
-                            <img src="" alt=""/>
-                            <img src="" alt=""/>
-                            <img src="" alt=""/>
+                            {/* Tutaj wyświetl dodatkowe zdjęcia psa */}
+                            <img src="" alt="" />
+                            <img src="" alt="" />
+                            <img src="" alt="" />
+                            <img src="" alt="" />
                         </div>
                     </div>
                 </div>
