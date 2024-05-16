@@ -27,7 +27,7 @@ const UserPanel = () => {
             </header>
             {/*boczny pasek (nakładka)*/}
             <div className="aside">
-                <a href={'userPanel.html'} className="aside-content">galeria psów</a>
+
                 <a href={'reservedDogs.html'} className="aside-content">Zarezerwowane psy</a>
                 <a href={'weather.html'} className="aside-content">pogoda</a>
                 <a href={'calculator.html'} className="aside-content">kalkulator</a>
