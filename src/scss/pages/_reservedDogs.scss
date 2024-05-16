@@ -21,6 +21,7 @@
   opacity: 1;
   color: black;
   display: flex;
+  background-color: red;
   justify-content: center;
   align-items: center;
 }
@@ -48,4 +49,20 @@
   background-color: lightcoral;
   font-size: 23px;
 
+}
+.reservedDogs {
+  margin: 1rem;
+
+  width: 85%;
+}
+.reservedDogsList {
+  margin: 1rem;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+.resevedDogsButtons {
+  display: flex;
+  justify-content: center;
 }
