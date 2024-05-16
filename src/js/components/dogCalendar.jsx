@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from "react-dom/client";
 
+
+// Styl dla kalendarza
+
+
 const DogCalendar = () => {
     // Stan przechowujący wybrane daty
     const [selectedDates, setSelectedDates] = useState(() => {
         const storedDates = localStorage.getItem('selectedDates');
-
         return storedDates ? JSON.parse(storedDates) : {};
-
-        return storedDates ? JSON.parse(storedDates) : []; // Parsowanie zapisanych dat z local storage
-
     });
 
     // Obsługa kliknięcia na dzień kalendarza
     const handleDayClick = (date) => {
-
-        const updatedSelectedDates = { ...selectedDates };
         const selectedDog = localStorage.getItem('selectedDogName');
+        const updatedSelectedDates = { ...selectedDates };
 
         if (!updatedSelectedDates[selectedDog]) {
             updatedSelectedDates[selectedDog] = [];
@@ -28,13 +27,6 @@ const DogCalendar = () => {
 
         localStorage.setItem('selectedDates', JSON.stringify(updatedSelectedDates));
         setSelectedDates(updatedSelectedDates);
-
-        const updatedSelectedDates = selectedDates.includes(date)
-            ? selectedDates.filter(d => d !== date) // Usunięcie daty, jeśli jest już wybrana
-            : [...selectedDates, date]; // Dodanie daty, jeśli nie jest jeszcze wybrana
-        localStorage.setItem('selectedDates', JSON.stringify(updatedSelectedDates)); // Zapisanie dat do local storage
-        setSelectedDates(updatedSelectedDates); // Uaktualnienie stanu
-
     };
 
     // Funkcja sprawdzająca, czy data jest wybrana
@@ -42,6 +34,7 @@ const DogCalendar = () => {
         const selectedDog = localStorage.getItem('selectedDogName');
         return selectedDates[selectedDog] && selectedDates[selectedDog].includes(date);
     };
+
     return (
         <div className="container-main">
             <header className="dogCvHeader">
