@@ -32,7 +32,7 @@ const App = () => {
     return (
         <div className="container-main">
             <header className="dogCvHeader">
-                <div className="localName"></div>
+                <div className="localName">Sprawdź pogode na dziś!</div>
             </header>
             <div className="aside">
                 <a href={'userPanel.html'} className="aside-content">Galeria psów</a>

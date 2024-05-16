@@ -23,7 +23,7 @@ const UserPanel = () => {
     return (
         <div className="container-main">
             <header className="dogCvHeader">
-                <div className="localName">{username}</div>
+                <div className="localName">Witaj! {username}</div>
             </header>
             {/*boczny pasek (nakładka)*/}
             <div className="aside">
@@ -31,7 +31,7 @@ const UserPanel = () => {
                 <a href={'reservedDogs.html'} className="aside-content">Zarezerwowane psy</a>
                 <a href={'weather.html'} className="aside-content">pogoda</a>
                 <a href={'calculator.html'} className="aside-content">kalkulator</a>
-                <div> filtry</div>
+
             </div>
             <div className="userPanelMainContent">
                 <div className="userPanelDogCards">
@@ -59,25 +59,25 @@ const UserPanel = () => {
                     </a>
                 </div>
                 <div className="userPanelDogCards">
-                    <a href="" onClick={() => handleDogClick("mieniu", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9d7B1q2N8oAorqXC8zdbbVqJYKJjbWDGyd_KdfSncBQ&s")}>
+                    <a href="dogCv.html" onClick={() => handleDogClick("mieniu", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9d7B1q2N8oAorqXC8zdbbVqJYKJjbWDGyd_KdfSncBQ&s")}>
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9d7B1q2N8oAorqXC8zdbbVqJYKJjbWDGyd_KdfSncBQ&s" alt="" />
                         <p><div className={'dogName5'}>mieniu</div></p>
                     </a>
                 </div>
                 <div className="userPanelDogCards">
-                    <a href="" onClick={() => handleDogClick("czorej", "https://b1157417.smushcdn.com/1157417/wp-content/uploads/2023/06/cute-french-bulldog-close-up-eye-contact-outdoors-825x550.jpg?lossy=1&strip=1&webp=0")}>
+                    <a href="dogCv.html" onClick={() => handleDogClick("czorej", "https://b1157417.smushcdn.com/1157417/wp-content/uploads/2023/06/cute-french-bulldog-close-up-eye-contact-outdoors-825x550.jpg?lossy=1&strip=1&webp=0")}>
                         <img src="https://b1157417.smushcdn.com/1157417/wp-content/uploads/2023/06/cute-french-bulldog-close-up-eye-contact-outdoors-825x550.jpg?lossy=1&strip=1&webp=0" alt="" />
                         <p><div className={'dogName6'}>czorej</div></p>
                     </a>
                 </div>
                 <div className="userPanelDogCards">
-                    <a href="" onClick={() => handleDogClick("kraus", "https://media.wired.com/photos/65651b7225ccbd8cc7d5403c/master/pass/Science-Life-Extension-Drug-for-Big-Dogs-Is-Getting-Closer-1330545769.jpg")}>
+                    <a href="dogCv.html" onClick={() => handleDogClick("kraus", "https://media.wired.com/photos/65651b7225ccbd8cc7d5403c/master/pass/Science-Life-Extension-Drug-for-Big-Dogs-Is-Getting-Closer-1330545769.jpg")}>
                         <img src="https://media.wired.com/photos/65651b7225ccbd8cc7d5403c/master/pass/Science-Life-Extension-Drug-for-Big-Dogs-Is-Getting-Closer-1330545769.jpg" alt="" />
                         <p><div className={'dogName7'}>kraus</div></p>
                     </a>
                 </div>
                 <div className="userPanelDogCards">
-                    <a href="" onClick={() => handleDogClick("kapen", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0QAflBhYPp957wxpJ-Q0bbssUBEKkSrCPmRZLn6-qHA&s")}>
+                    <a href="dogCv.html" onClick={() => handleDogClick("kapen", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0QAflBhYPp957wxpJ-Q0bbssUBEKkSrCPmRZLn6-qHA&s")}>
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0QAflBhYPp957wxpJ-Q0bbssUBEKkSrCPmRZLn6-qHA&s" alt="" />
                         <p><div className={'dogName8'}>kapen</div></p>
                     </a>

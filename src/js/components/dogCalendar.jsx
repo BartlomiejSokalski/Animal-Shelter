@@ -38,7 +38,7 @@ const DogCalendar = () => {
     return (
         <div className="container-main">
             <header className="dogCvHeader">
-                <div className="localName"></div>
+                <div className="localName">Kalendarz rezerwacji psa</div>
             </header>
             <div className="aside">
                 <a href={'userPanel.html'} className="aside-content">galeria psów</a>
@@ -50,7 +50,8 @@ const DogCalendar = () => {
 
        {/*główny div z kalendarzem */}
         <div className="dogCalendar">
-            <div className="dogCalendarDate">02.2025</div>
+
+            <div className="dogCalendarDate">Zarezerwój psy na 02.2025</div>
 
 
             <div className="dogCalendarWeek"> week1
