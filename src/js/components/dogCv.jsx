@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from "react-dom/client";
-import UserPanel from "./userPanel.jsx";
+import UserPanel from "./userPanel.jsx"; // Import komponentu UserPanel
 
 const DogCvPage = () => {
+
     const [username, setUsername] = useState('');
     const [selectedDogName, setSelectedDogName] = useState('');
     const [selectedDogImageUrl, setSelectedDogImageUrl] = useState('');
 
+    const [username, setUsername] = useState(''); // Stan dla nazwy użytkownika
+
+
     useEffect(() => {
-        // Pobierz nazwę użytkownika z Local Storage
+        // Efekt pobierający nazwę użytkownika z local storage przy załadowaniu komponentu
         const storedUsername = localStorage.getItem('username');
         if (storedUsername) {
             setUsername(storedUsername);
@@ -27,6 +31,7 @@ const DogCvPage = () => {
         }
     }, []); // Pobieranie danych tylko raz przy załadowaniu komponentu
 
+
     // Funkcja obsługująca kliknięcie w psa
     const handleDogClick = (dogName, imageUrl) => {
         // Zapisz imię psa do lokalnego przechowywania (localStorage)
@@ -38,6 +43,8 @@ const DogCvPage = () => {
         setSelectedDogImageUrl(imageUrl);
     };
 
+
+
     return (
         <div className="container-main">
             <header className="dogCvHeader">
@@ -46,14 +53,17 @@ const DogCvPage = () => {
                 <div className={'dogCvHeaderButtons'}>
                     <a href="dogCalendar.html"><button>Zarezerwój</button></a>
                     <a href="dogAdoptForm.html"><button>Adoptuj</button></a>
+
                 </div>
             </header>
+            {/*boczny pasek zakładek*/}
             <div className="aside">
                 <a href={'userPanel.html'} className="aside-content">galeria psów</a>
                 <a href={'reservedDogs.html'} className="aside-content">Zarezerwowane psy</a>
-                <div className="aside-content"> pogoda</div>
+                <a href={'weather.html'} className="aside-content">pogoda</a>
+                <a href={'calculator.html'} className="aside-content">kalkulator</a>
             </div>
-
+            {/*info pod zdjeciem psa*/}
             <div className="dogCv">
                 <div className="dogCvAside">
                     {/* Wyświetl obrazek wybranego psa */}
@@ -78,6 +88,7 @@ const DogCvPage = () => {
                         <li>wykastrowany</li>
                     </ul>
                 </div>
+                {/*główny text psa*/}
                 <div className="dogCvMainContentHeader">
                     {/* Wyświetl imię wybranego psa */}
                     <h1>Cześć jestem {selectedDogName}!, nie moge sie doczekać adopcji</h1>
