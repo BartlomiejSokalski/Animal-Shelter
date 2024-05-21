@@ -10,7 +10,7 @@
 
 }
 
-.dogCvHeader {
+.dogAdoptFormHeader {
   z-index: 999999;
   width: 100%;
   height: 5rem;
@@ -26,11 +26,11 @@
 
   align-items: center;
 }
-.dogCvHeader:focus {
+.dogAdoptFormHeader:focus {
   outline: none;
 }
 
-.aside {
+.asideDogAdoptForm {
   width: 20vh;
   height: 85vh;
   color: black;
@@ -38,13 +38,13 @@
   flex-direction: column;
 }
 
-.aside-content {
+.asideDogAdoptForm-content {
   font-size: 16px;
   padding: 1rem;
   transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Dodane */
 }
 
-.aside-content:hover {
+.asideDogAdoptForm-content:hover {
   transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Dodane */
   padding: 2rem; /* Dodane, jeśli chcesz zachować padding po powiększeniu */
 

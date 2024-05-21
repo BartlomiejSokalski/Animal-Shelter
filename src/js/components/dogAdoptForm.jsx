@@ -6,14 +6,14 @@ import '../pages/_dogAdoptForm.scss';
 const DogAdoptForm = () => {
     return (
         <div className="container-main">
-            <header className="dogCvHeader">
+            <header className="dogAdoptFormHeader">
                 <div className="localName"></div>
             </header>
-            <div className="aside">
-                <Link to={'/userPanel'} className="aside-content">galeria psów</Link>
-                <Link to={'/reservedDogs'} className="aside-content">Zarezerwowane psy</Link>
-                <Link to={'/weather'} className="aside-content">pogoda</Link>
-                <Link to={'/calculator'} className="aside-content">kalkulator</Link>
+            <div className="asideDogAdoptForm">
+                <Link to={'/userPanel'} className="asideDogAdoptForm-content">galeria psów</Link>
+                <Link to={'/reservedDogs'} className="asideDogAdoptForm-content">Zarezerwowane psy</Link>
+                <Link to={'/weather'} className="asideDogAdoptForm-content">pogoda</Link>
+                <Link to={'/calculator'} className="asideDogAdoptForm-content">kalkulator</Link>
             </div>
             <form className="dogAdoptionForm">
                 <div className="dogAdoptionFormSelect">

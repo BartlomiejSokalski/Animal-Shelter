@@ -20,7 +20,7 @@
   opacity: 1;
 
   color: black;
-  display: flex;
+
 
   align-items: center;
 }
@@ -39,12 +39,12 @@
 .aside-content {
   font-size: 16px;
   padding: 1rem;
-  transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Dodane */
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
 .aside-content:hover {
-  transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Dodane */
-  padding: 2rem; /* Dodane, jeśli chcesz zachować padding po powiększeniu */
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+  padding: 2rem;
 
   font-size: 32px;
 }

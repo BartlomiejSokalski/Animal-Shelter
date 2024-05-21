@@ -47,13 +47,13 @@ const ReservedDogs = () => {
 
     return (
         <div className="container-main">
-            <header className="dogCvHeader">
+            <header className="reservedDogsHeader">
                 <div className="localName">Twoje zarezerwowane psy!</div>
             </header>
-            <div className="aside">
-                <Link to="/userPanel" className="aside-content">galeria psów</Link>
-                <Link to="/weather" className="aside-content">pogoda</Link>
-                <Link to="/calculator" className="aside-content">kalkulator</Link>
+            <div className="asideReservedDogs">
+                <Link to="/userPanel" className="asideReservedDogs-content">galeria psów</Link>
+                <Link to="/weather" className="asideReservedDogs-content">pogoda</Link>
+                <Link to="/calculator" className="asideReservedDogs-content">kalkulator</Link>
             </div>
             <div className="reservedDogs">
                 {/* Wyświetl listę zapisanych psów */}

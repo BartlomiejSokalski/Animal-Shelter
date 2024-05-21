@@ -146,13 +146,13 @@ const Calculator = () => {
 
     return (
         <div className="container-main">
-            <header className="dogCvHeader">
+            <header className="calculatorHeader">
                 <div className="localName"></div>
             </header>
-            <div className="aside">
-                <Link to="/userPanel" className="aside-content">galeria psów</Link>
-                <Link to="/reservedDogs" className="aside-content">Zarezerwowane psy</Link>
-                <Link to="/weather" className="aside-content">pogoda</Link>
+            <div className="asideCalculator">
+                <Link to="/userPanel" className="asideCalculator-content">galeria psów</Link>
+                <Link to="/reservedDogs" className="asideCalculator-content">Zarezerwowane psy</Link>
+                <Link to="/weather" className="asideCalculator-content">pogoda</Link>
             </div>
             <div className="calculator">
                 <div>

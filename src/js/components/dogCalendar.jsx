@@ -31,14 +31,14 @@ const DogCalendar = () => {
 
     return (
         <div className="container-main">
-            <header className="dogCvHeader">
+            <header className="dogCalendarHeader">
                 <div className="localName">Kalendarz rezerwacji psa</div>
             </header>
-            <div className="aside">
-                <Link to="/userPanel" className="aside-content">galeria psów</Link>
-                <Link to="/reservedDogs" className="aside-content">Zarezerwowane psy</Link>
-                <Link to="/weather" className="aside-content">pogoda</Link>
-                <Link to="/calculator" className="aside-content">kalkulator</Link>
+            <div className="asideDogCalendar">
+                <Link to="/userPanel" className="asideDogCalendar-content">galeria psów</Link>
+                <Link to="/reservedDogs" className="asideDogCalendar-content">Zarezerwowane psy</Link>
+                <Link to="/weather" className="asideDogCalendar-content">pogoda</Link>
+                <Link to="/calculator" className="asideDogCalendar-content">kalkulator</Link>
             </div>
 
             <div className="dogCalendar">

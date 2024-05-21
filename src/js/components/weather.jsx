@@ -33,13 +33,13 @@ const App = () => {
 
     return (
         <div className="container-main">
-            <header className="dogCvHeader">
+            <header className="weatherHeader">
                 <div className="localName">Sprawdź pogode na dziś!</div>
             </header>
-            <div className="aside">
-                <Link to="/userPanel" className="aside-content">Galeria psów</Link>
-                <Link to="/reservedDogs" className="aside-content">Zarezerwowane psy</Link>
-                <Link to="/calculator" className="aside-content">Kalkulator</Link>
+            <div className="asideWeather">
+                <Link to="/userPanel" className="asideWeather-content">Galeria psów</Link>
+                <Link to="/reservedDogs" className="asideWeather-content">Zarezerwowane psy</Link>
+                <Link to="/calculator" className="asideWeather-content">Kalkulator</Link>
             </div>
             <div className="weather">
                 {weatherData ? (

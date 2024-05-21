@@ -15,7 +15,7 @@ const LandingPage = () => {
                         <button className="btn-header">Dlaczego my?</button>
                         <button className="btn-header">Pies</button>
                         <button className="btn-header">Kontakt</button>
-                        <Link to="/login" className="btn-header">Zaloguj</Link> {/* Użyj komponentu Link zamiast znacznika <a> */}
+                        <Link to="/login" className="btn-header">Zaloguj</Link>
                     </div>
                 </header>
                 <div className="header-main-img"><img src="src/images/dogs.jpg" alt="" /></div>
