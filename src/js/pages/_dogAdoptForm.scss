@@ -2,58 +2,124 @@
   font-family: cursive;
 }
 
-.container-main {
-  max-width:100%;
+.container-main-dogAdoptForm {
+  max-width: 100%;
   display: flex;
   flex-wrap: wrap;
-
-
 }
 
 .dogAdoptFormHeader {
   z-index: 999999;
-  width: 100%;
+
   height: 5rem;
   display: flex;
-
   justify-content: center;
   border-radius: 5px;
-  font-size: 36px;
+  font-size: 3rem; /* Użyj jednostek elastycznych dla czcionki */
   opacity: 1;
-
   color: black;
 
-
-  align-items: center;
 }
+
 .dogAdoptFormHeader:focus {
   outline: none;
 }
 
 .asideDogAdoptForm {
-  width: 20vh;
-  height: 85vh;
+
+
+
   color: black;
   display: flex;
   flex-direction: column;
 }
 
 .asideDogAdoptForm-content {
-  font-size: 16px;
+  font-size: 1rem; /* Użyj jednostek elastycznych dla czcionki */
   padding: 1rem;
-  transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Dodane */
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
 .asideDogAdoptForm-content:hover {
-  transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Dodane */
-  padding: 2rem; /* Dodane, jeśli chcesz zachować padding po powiększeniu */
-
-  font-size: 20px;
+  background-color: red;
 }
 
 .dogAdoptionForm {
-
-  width: 80%;
+  width: 60%; /* Użyj procentowej szerokości dla formularza */
   margin: 1rem;
 }
 
+/* Media Queries for responsiveness */
+@media (max-width: 1200px) {
+  .dogAdoptFormHeader {
+    font-size: 2.5rem; /* Dostosuj czcionkę dla mniejszych ekranów */
+  }
+
+  .asideDogAdoptForm {
+    width: 30%; /* Dostosuj szerokość aside dla mniejszych ekranów */
+    max-width: 25vh;
+  }
+}
+
+@media (max-width: 992px) {
+  .dogAdoptFormHeader {
+    font-size: 2.2rem; /* Dostosuj czcionkę dla mniejszych ekranów */
+  }
+
+  .asideDogAdoptForm {
+    width: 30%; /* Dostosuj szerokość aside dla mniejszych ekranów */
+    max-width: 30vh;
+  }
+
+  .asideDogAdoptForm-content {
+    font-size: 1.8rem; /* Dostosuj czcionkę dla mniejszych ekranów */
+  }
+}
+
+@media (max-width: 768px) {
+  .dogAdoptFormHeader {
+    font-size: 2rem; /* Dostosuj czcionkę dla mniejszych ekranów */
+  }
+
+  .container-main {
+    flex-direction: column; /* Ustawianie kontenera na układ kolumnowy dla mniejszych ekranów */
+
+  }
+
+  .asideDogAdoptForm {
+    width: 80%; /* Dostosuj szerokość aside dla mniejszych ekranów */
+    height: auto;
+    flex-direction: row; /* Ustawianie aside i formularza na jednej linii */
+    justify-content: space-around; /* Rozłożenie elementów na osi poziomej */
+  }
+
+  .dogAdoptionForm {
+    width: 80%; /* Ustaw szerokość formularza na 80% dla mniejszych ekranów */
+  }
+
+  .asideDogAdoptForm-content {
+    font-size: 1.5rem; /* Dostosuj czcionkę dla mniejszych ekranów */
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .dogAdoptFormHeader {
+    font-size: 1.8rem; /* Dostosuj czcionkę dla mniejszych ekranów */
+  }
+
+  .asideDogAdoptForm {
+    width: 80%; /* Dostosuj szerokość aside dla bardzo małych ekranów */
+    flex-direction: column; /* Ustawianie kontenera na układ kolumnowy dla bardzo małych ekranów */
+    height: auto;
+  }
+
+  .dogAdoptionForm {
+    width: 80%; /* Ustaw szerokość formularza na 80% dla bardzo małych ekranów */
+  }
+
+  .asideDogAdoptForm-content {
+    font-size: 1.3rem; /* Dostosuj czcionkę dla bardzo małych ekranów */
+    padding: 0.5rem;
+  }
+}

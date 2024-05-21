@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Link } from 'react-router-dom';
 import '../pages/_calculator.scss';
+import Weather from "./weather.jsx";
+import UserPanel from "./userPanel.jsx";
 
 const Calculator = () => {
+    const [username, setUsername] = useState('');
     const [showDiseaseOptions, setShowDiseaseOptions] = useState(false);
     const [showSleepOptions, setShowSleepOptions] = useState(false);
     const [showShampooOptions, setShowShampooOptions] = useState(false);
@@ -144,15 +147,32 @@ const Calculator = () => {
         setAdditionalCost(cost);
     }, [checkboxesChecked, shampooType, diseaseType, sleepType, dogSize, showShampooOptions, showDiseaseOptions, showSleepOptions]);
 
+    useEffect(() => {
+        const storedUsername = localStorage.getItem('username');
+        if (storedUsername) {
+            setUsername(storedUsername);
+        }
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem('username');
+        localStorage.removeItem('password');
+        navigate('/login');
+    };
     return (
-        <div className="container-main">
+        <div className="container-main-calculator">
             <header className="calculatorHeader">
-                <div className="localName"></div>
+
+                <div className="localName">{username && `Witaj, ${username}! tutaj możesz obliczyć ile mniej więcej kosztuje utrzymanie psa`}</div>
+                <button onClick={handleLogout}>Wyloguj</button>
             </header>
             <div className="asideCalculator">
+
                 <Link to="/userPanel" className="asideCalculator-content">galeria psów</Link>
                 <Link to="/reservedDogs" className="asideCalculator-content">Zarezerwowane psy</Link>
-                <Link to="/weather" className="asideCalculator-content">pogoda</Link>
+                <div className="weather">
+                    <Weather />
+                </div>
             </div>
             <div className="calculator">
                 <div>

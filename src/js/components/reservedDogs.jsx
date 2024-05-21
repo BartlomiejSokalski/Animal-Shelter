@@ -1,7 +1,8 @@
-import { createRoot } from "react-dom/client";
+// ReservedDogs.jsx
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../pages/_reservedDogs.scss';
+import Weather from "./weather.jsx";
 
 const ReservedDogs = () => {
     const [allDogNames, setAllDogNames] = useState([]);
@@ -45,15 +46,24 @@ const ReservedDogs = () => {
         navigate('/dogCalendar');
     };
 
+    const handleLogout = () => {
+        localStorage.removeItem('username');
+        localStorage.removeItem('password');
+        navigate('/login');
+    };
+
     return (
-        <div className="container-main">
+        <div className="container-main-reservedDogs">
             <header className="reservedDogsHeader">
                 <div className="localName">Twoje zarezerwowane psy!</div>
+                <button onClick={handleLogout} className="logout-btn">Wyloguj</button>
             </header>
             <div className="asideReservedDogs">
                 <Link to="/userPanel" className="asideReservedDogs-content">galeria psów</Link>
-                <Link to="/weather" className="asideReservedDogs-content">pogoda</Link>
                 <Link to="/calculator" className="asideReservedDogs-content">kalkulator</Link>
+                <div className="weather">
+                    <Weather />
+                </div>
             </div>
             <div className="reservedDogs">
                 {/* Wyświetl listę zapisanych psów */}

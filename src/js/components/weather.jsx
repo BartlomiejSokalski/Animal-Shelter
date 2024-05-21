@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-
 import { Link } from 'react-router-dom';
-
 import '../pages/_weather.scss';
 
 const apiKey = 'XRqnOs9+NKymcMEkekhr3g==nD3VIVUDcy0o3uvI';
 const city = 'Bydgoszcz';
 
-const App = () => {
+const Weather = () => {
     const [weatherData, setWeatherData] = useState(null);
 
     useEffect(() => {
@@ -32,30 +30,18 @@ const App = () => {
     }, []);
 
     return (
-        <div className="container-main">
-            <header className="weatherHeader">
-                <div className="localName">Sprawdź pogode na dziś!</div>
-            </header>
-            <div className="asideWeather">
-                <Link to="/userPanel" className="asideWeather-content">Galeria psów</Link>
-                <Link to="/reservedDogs" className="asideWeather-content">Zarezerwowane psy</Link>
-                <Link to="/calculator" className="asideWeather-content">Kalkulator</Link>
-            </div>
-            <div className="weather">
-                {weatherData ? (
-                    <div>
-                        <h2>Pogoda w {city}</h2>
-                        <p>Temperatura: {weatherData.temp}°C</p>
-                        <p>Prędkość wiatru: {weatherData.wind_speed} m/s</p>
-                    </div>
-                ) : (
-                    <p>Ładowanie...</p>
-                )}
-            </div>
+        <div className="weather-container">
+            {weatherData ? (
+                <div>
+                    <h2>Pogoda w {city}</h2>
+                    <p>Temperatura: {weatherData.temp}°C</p>
+                    <p>Prędkość wiatru: {weatherData.wind_speed} m/s</p>
+                </div>
+            ) : (
+                <p>Ładowanie...</p>
+            )}
         </div>
     );
 };
 
-
-
-export default App;
+export default Weather;

@@ -1,18 +1,28 @@
 import React from 'react';
-
-import { Link } from 'react-router-dom';
-import '../pages/_dogAdoptForm.scss';
+import { Link, useNavigate } from 'react-router-dom';
+import Weather from "./weather.jsx";
 
 const DogAdoptForm = () => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem('username');
+        localStorage.removeItem('password');
+        navigate('/login');
+    };
+
     return (
-        <div className="container-main">
+        <div className="container-main-dogAdoptForm">
             <header className="dogAdoptFormHeader">
                 <div className="localName"></div>
+                <button onClick={handleLogout}>Wyloguj</button>
             </header>
             <div className="asideDogAdoptForm">
                 <Link to={'/userPanel'} className="asideDogAdoptForm-content">galeria psów</Link>
                 <Link to={'/reservedDogs'} className="asideDogAdoptForm-content">Zarezerwowane psy</Link>
-                <Link to={'/weather'} className="asideDogAdoptForm-content">pogoda</Link>
+                <div className="weather">
+                    <Weather />
+                </div>
                 <Link to={'/calculator'} className="asideDogAdoptForm-content">kalkulator</Link>
             </div>
             <form className="dogAdoptionForm">
@@ -51,4 +61,4 @@ const DogAdoptForm = () => {
     );
 };
 
-export default DogAdoptForm
+export default DogAdoptForm;

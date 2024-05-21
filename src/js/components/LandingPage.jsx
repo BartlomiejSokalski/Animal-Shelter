@@ -4,7 +4,7 @@ import { BrowserRouter, Route,  Routes, Link } from "react-router-dom";
 const LandingPage = () => {
     return (
         <>
-            <div className="container-main">
+            <div className="container-main-landingPage">
                 {/* landing page */}
                 <header className="header-main">
                     <div className="header-logo">

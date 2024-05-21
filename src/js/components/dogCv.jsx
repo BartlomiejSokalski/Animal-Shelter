@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import UserPanel from "./userPanel.jsx";
+import { Link, useNavigate } from 'react-router-dom';
+import Weather from "./weather.jsx";
 import '../pages/_dogCv.scss';
 
 const DogCvPage = () => {
     const [username, setUsername] = useState('');
     const [selectedDogName, setSelectedDogName] = useState('');
     const [selectedDogImageUrl, setSelectedDogImageUrl] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Efekt pobierający nazwę użytkownika z local storage przy załadowaniu komponentu
@@ -28,22 +29,31 @@ const DogCvPage = () => {
         }
     }, []); // Pobieranie danych tylko raz przy załadowaniu komponentu
 
+    const handleLogout = () => {
+        localStorage.removeItem('username');
+        localStorage.removeItem('password');
+        navigate('/login');
+    };
+
     return (
-        <div className="container-main">
+        <div className="container-main-dogCv">
             <header className="dogCvHeader">
                 <div className="dogCvHeaderLogo">Logo</div>
-                <div className="localName">{username && `Witaj, ${username}!`}</div>
+                <div className="localName">{username && ` ${username}`}</div>
                 <div className={'dogCvHeaderButtons'}>
                     <Link to="/dogCalendar"><button>Zarezerwój</button></Link>
                     <Link to="/dogAdoptForm"><button>Adoptuj</button></Link>
+                    <button onClick={handleLogout}>Wyloguj</button>
                 </div>
             </header>
             {/*boczny pasek zakładek*/}
             <div className="aside">
                 <Link to="/userPanel" className="aside-content">galeria psów</Link>
                 <Link to="/reservedDogs" className="aside-content">Zarezerwowane psy</Link>
-                <Link to="/weather" className="aside-content">pogoda</Link>
                 <Link to="/calculator" className="aside-content">kalkulator</Link>
+                <div className="weather">
+                    <Weather />
+                </div>
             </div>
             {/*info pod zdjeciem psa*/}
             <div className="dogCv">
@@ -99,23 +109,5 @@ const DogCvPage = () => {
         </div>
     );
 };
-
-const App = () => {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/userPanel" element={<UserPanel />} />
-                <Route path="/dogCv" element={<DogCvPage />} />
-                <Route path="/reservedDogs" element={<div>Reserved Dogs Page</div>} />
-                <Route path="/calculator" element={<div>Calculator Page</div>} />
-                <Route path="/weather" element={<div>Weather Page</div>} />
-                <Route path="/dogCalendar" element={<div>Dog Calendar Page</div>} />
-                <Route path="/dogAdoptForm" element={<div>Dog Adopt Form Page</div>} />
-            </Routes>
-        </Router>
-    );
-};
-
-
 
 export default DogCvPage;

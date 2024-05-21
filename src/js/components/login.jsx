@@ -32,7 +32,7 @@ const LoginPage = () => {
 
     return (
         // login form
-        <div className="container-main loginPage">
+        <div className="container-main container-main-loginPage">
             <div className="login-form">
                 <h1>Login</h1>
                 <div className="input-box">

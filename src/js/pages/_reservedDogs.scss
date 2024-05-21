@@ -2,16 +2,12 @@
   font-family: cursive;
 }
 
-.container-main {
-  max-width:100%;
+.container-main-reservedDogs {
+  max-width: 100%;
   display: flex;
   flex-wrap: wrap;
-
-
-
-
-
 }
+
 .reservedDogsHeader {
   z-index: 99999;
   width: 100%;
@@ -21,48 +17,116 @@
   opacity: 1;
   color: black;
   display: flex;
-
   justify-content: center;
   align-items: center;
 }
-.dogCvHeader:focus {
-  outline: none;
-}
 
 .asideReservedDogs {
-  width: 20vh;
-  height: 85vh;
+  width: 20%;
 
+  max-width: 20vh; /* Maksymalna szerokość */
+  color: black;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-start; /* Elementy .asideReservedDogs są wyświetlane z lewej strony */
 }
 
 .asideReservedDogs-content {
   font-size: 16px;
   padding: 1rem;
-  transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Dodane */
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  text-align: center;
+  margin: 0.5rem;
 }
 
 .asideReservedDogs-content:hover {
-  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-  padding: 1rem; /* Dodane, jeśli chcesz zachować padding po powiększeniu */
-  background-color: lightcoral;
-  font-size: 23px;
 
+  background-color: red;
 }
+
 .reservedDogs {
   margin: 1rem;
-
-  width: 85%;
+  width: 80%; /* Możesz dostosować szerokość */
 }
+
 .reservedDogsList {
   margin: 1rem;
   padding: 2rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
-
 }
+
 .resevedDogsButtons {
   display: flex;
   justify-content: center;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .reservedDogs {
+    justify-content: center;
+  }
+
+  .asideReservedDogs-content {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .reservedDogsHeader {
+    font-size: 32px;
+  }
+
+  .asideReservedDogs {
+    width: 200px;
+    height: auto;
+  }
+
+  .asideReservedDogs-content {
+    font-size: 16px;
+  }
+
+  .asideReservedDogs-content:hover {
+    font-size: 23px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .reservedDogsHeader {
+    font-size: 28px;
+  }
+
+  .asideReservedDogs {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .asideReservedDogs-content {
+    width: 90%;
+    margin: 0.5rem 0;
+  }
+
+  .reservedDogs {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .reservedDogsHeader {
+    font-size: 24px;
+  }
+
+  .asideReservedDogs-content {
+    font-size: 14px;
+  }
+
+  .asideReservedDogs-content:hover {
+    font-size: 18px;
+  }
 }

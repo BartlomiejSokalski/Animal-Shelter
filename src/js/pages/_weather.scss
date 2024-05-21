@@ -2,16 +2,12 @@
   font-family: cursive;
 }
 
-.container-main {
-  max-width:100%;
+.container-main-weather {
+  max-width: 100%;
   display: flex;
   flex-wrap: wrap;
-
-
-
-
-
 }
+
 .weatherHeader {
   z-index: 9999;
   width: 100%;
@@ -24,14 +20,10 @@
   justify-content: center;
   align-items: center;
 }
-.dogCvHeader:focus {
-  outline: none;
-}
 
 .asideWeather {
   width: 20vh;
   height: 85vh;
-
   display: flex;
   flex-direction: column;
 }
@@ -39,19 +31,33 @@
 .asideWeather-content {
   font-size: 16px;
   padding: 1rem;
-  transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Dodane */
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
 .asideWeather-content:hover {
   transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-  padding: 1rem; /* Dodane, jeśli chcesz zachować padding po powiększeniu */
+  padding: 1rem;
   background-color: lightcoral;
   font-size: 23px;
-
 }
 
 .weather {
   margin: 1rem;
   width: 80%;
+}
 
+@media screen and (max-width: 768px) {
+  .container-main {
+    flex-direction: column;
+  }
+  .weatherHeader {
+    font-size: 24px;
+  }
+  .asideWeather {
+    width: 100%;
+    height: auto;
+  }
+  .weather {
+    width: 100%;
+  }
 }

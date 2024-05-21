@@ -2,16 +2,12 @@
   font-family: cursive;
 }
 
-.container-main {
-  max-width:100%;
+.container-main-calculator {
+  max-width: 100%;
   display: flex;
   flex-wrap: wrap;
-
-
-
-
-
 }
+
 .calculatorHeader {
   z-index: 99;
   width: 100%;
@@ -20,54 +16,122 @@
   font-size: 36px;
   opacity: 1;
   color: black;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .calculatorHeader:focus {
   outline: none;
 }
 
 .asideCalculator {
-  width: 20vh;
-  height: 85vh;
+  width: 20%;
+  max-width: 20vh; /* Maksymalna szerokość */
 
+  color: black;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-start; /* Elementy .asideCalculator są wyświetlane z lewej strony */
 }
 
 .asideCalculator-content {
   font-size: 16px;
   padding: 1rem;
-  transition: width 0.3s ease-in-out, height 0.3s ease-in-out; /* Dodane */
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  text-align: center;
+  margin: 0.5rem;
 }
 
 .asideCalculator-content:hover {
-  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-  padding: 1rem; /* Dodane, jeśli chcesz zachować padding po powiększeniu */
+
   background-color: lightcoral;
-  font-size: 23px;
 
 }
 
 .calculator {
   margin: 1rem;
   width: 80%;
-
+  display: flex;
+  flex-direction: column;
 }
 
-
-.calulatorSelect {
-  padding: 1rem;
-}
-.calculatorLabel {
-  padding: 1rem;
-}
+.calculatorSelect,
+.calculatorLabel,
 .calculatorInput {
   padding: 1rem;
 }
-.calculator {
-  display: flex;
-  flex-direction: column;
+
+/* Media Queries for responsiveness */
+@media (max-width: 1200px) {
+  .calculatorHeader {
+    font-size: 32px;
+  }
+
+  .asideCalculator {
+    width: 25vh;
+  }
+}
+
+@media (max-width: 992px) {
+  .calculatorHeader {
+    font-size: 28px;
+  }
+
+  .asideCalculator {
+    width: 30vh;
+  }
+
+  .calculator {
+    width: 90%;
+  }
+
+  .asideCalculator-content {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .calculatorHeader {
+    font-size: 24px;
+  }
+
+  .asideCalculator {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .asideCalculator-content {
+    width: 90%;
+    margin: 0.5rem 0;
+    font-size: 14px;
+    padding: 0.5rem;
+  }
+
+  .calculator {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .calculatorHeader {
+    font-size: 20px;
+  }
+
+  .asideCalculator-content {
+    font-size: 12px;
+  }
+
+  .asideCalculator-content:hover {
+    font-size: 14px;
+  }
+
+  .calculator {
+    width: 100%;
+  }
 }
