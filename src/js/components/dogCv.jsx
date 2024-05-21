@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { createRoot } from "react-dom/client";
-import UserPanel from "./userPanel.jsx"; // Import komponentu UserPanel
+import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import UserPanel from "./userPanel.jsx";
+import '../pages/_dogCv.scss';
 
 const DogCvPage = () => {
-
     const [username, setUsername] = useState('');
     const [selectedDogName, setSelectedDogName] = useState('');
     const [selectedDogImageUrl, setSelectedDogImageUrl] = useState('');
-
-
-
 
     useEffect(() => {
         // Efekt pobierający nazwę użytkownika z local storage przy załadowaniu komponentu
@@ -31,43 +28,28 @@ const DogCvPage = () => {
         }
     }, []); // Pobieranie danych tylko raz przy załadowaniu komponentu
 
-
-    // Funkcja obsługująca kliknięcie w psa
-    const handleDogClick = (dogName, imageUrl) => {
-        // Zapisz imię psa do lokalnego przechowywania (localStorage)
-        localStorage.setItem('selectedDogName', dogName);
-        // Zapisz URL obrazka psa do lokalnego przechowywania (localStorage)
-        localStorage.setItem('selectedDogImageUrl', imageUrl);
-        // Ustaw aktualnie wybranego psa
-        setSelectedDogName(dogName);
-        setSelectedDogImageUrl(imageUrl);
-    };
-
-
-
     return (
         <div className="container-main">
             <header className="dogCvHeader">
                 <div className="dogCvHeaderLogo">Logo</div>
                 <div className="localName">{username && `Witaj, ${username}!`}</div>
                 <div className={'dogCvHeaderButtons'}>
-                    <a href="dogCalendar.html"><button>Zarezerwój</button></a>
-                    <a href="dogAdoptForm.html"><button>Adoptuj</button></a>
-
+                    <Link to="/dogCalendar"><button>Zarezerwój</button></Link>
+                    <Link to="/dogAdoptForm"><button>Adoptuj</button></Link>
                 </div>
             </header>
             {/*boczny pasek zakładek*/}
             <div className="aside">
-                <a href={'userPanel.html'} className="aside-content">galeria psów</a>
-                <a href={'reservedDogs.html'} className="aside-content">Zarezerwowane psy</a>
-                <a href={'weather.html'} className="aside-content">pogoda</a>
-                <a href={'calculator.html'} className="aside-content">kalkulator</a>
+                <Link to="/userPanel" className="aside-content">galeria psów</Link>
+                <Link to="/reservedDogs" className="aside-content">Zarezerwowane psy</Link>
+                <Link to="/weather" className="aside-content">pogoda</Link>
+                <Link to="/calculator" className="aside-content">kalkulator</Link>
             </div>
             {/*info pod zdjeciem psa*/}
             <div className="dogCv">
                 <div className="dogCvAside">
                     {/* Wyświetl obrazek wybranego psa */}
-                    <img src={selectedDogImageUrl} alt="" />
+                    <img src={selectedDogImageUrl} alt={selectedDogName} />
                     <div>co robie w wolnym czasie</div>
                     <ul>
                         <li>duzo szczekam</li>
@@ -113,16 +95,27 @@ const DogCvPage = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     );
 };
 
-const dududupson = document.querySelector('.userPanel')
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/userPanel" element={<UserPanel />} />
+                <Route path="/dogCv" element={<DogCvPage />} />
+                <Route path="/reservedDogs" element={<div>Reserved Dogs Page</div>} />
+                <Route path="/calculator" element={<div>Calculator Page</div>} />
+                <Route path="/weather" element={<div>Weather Page</div>} />
+                <Route path="/dogCalendar" element={<div>Dog Calendar Page</div>} />
+                <Route path="/dogAdoptForm" element={<div>Dog Adopt Form Page</div>} />
+            </Routes>
+        </Router>
+    );
+};
 
-const root = createRoot(dududupson)
-root.render(<DogCvPage/>)
+
 
 export default DogCvPage;

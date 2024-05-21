@@ -1,10 +1,12 @@
 import { createRoot } from "react-dom/client";
 import React, { useEffect, useState } from 'react';
-import UserPanel from "./userPanel.jsx";
+import { Link, useNavigate } from 'react-router-dom';
+import '../pages/_reservedDogs.scss';
 
 const ReservedDogs = () => {
     const [allDogNames, setAllDogNames] = useState([]);
     const [allDogDates, setAllDogDates] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Pobierz wszystkie imiona zapisanych psów z localStorage
@@ -23,6 +25,7 @@ const ReservedDogs = () => {
             .flat();
         setAllDogDates(storedDogDates);
     }, []);
+
     const handleCancelReservation = (dogName) => {
         // Usuń daty dla wybranego psa z localStorage
         const storedDates = JSON.parse(localStorage.getItem('selectedDates'));
@@ -33,16 +36,14 @@ const ReservedDogs = () => {
         setAllDogNames(allDogNames.filter(name => name !== dogName));
         setAllDogDates(allDogDates.filter((date, idx) => allDogNames[idx] !== dogName));
     };
+
     const handleEditReservation = (dogName) => {
         // Zapisz wybranego psa do localStorage
         localStorage.setItem('selectedDogName', dogName);
 
-        // Przekieruj do strony dogCalendar.html
-        window.location.href = 'dogCalendar.html';
+        // Przekieruj do strony dogCalendar
+        navigate('/dogCalendar');
     };
-
-
-
 
     return (
         <div className="container-main">
@@ -50,9 +51,9 @@ const ReservedDogs = () => {
                 <div className="localName">Twoje zarezerwowane psy!</div>
             </header>
             <div className="aside">
-                <a href={'userPanel.html'} className="aside-content">galeria psów</a>
-                <a href={'weather.html'} className="aside-content">pogoda</a>
-                <a href={'calculator.html'} className="aside-content">kalkulator</a>
+                <Link to="/userPanel" className="aside-content">galeria psów</Link>
+                <Link to="/weather" className="aside-content">pogoda</Link>
+                <Link to="/calculator" className="aside-content">kalkulator</Link>
             </div>
             <div className="reservedDogs">
                 {/* Wyświetl listę zapisanych psów */}
@@ -79,8 +80,4 @@ const ReservedDogs = () => {
     );
 };
 
-const dududupson = document.querySelector('.userPanel')
-
-const root = createRoot(dududupson)
-root.render(<ReservedDogs/>)
 export default ReservedDogs;

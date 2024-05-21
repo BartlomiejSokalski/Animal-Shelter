@@ -1,10 +1,13 @@
+// LoginPage.jsx
+import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
-import { createRoot } from "react-dom/client";
+import '../pages/_loginPage.scss';
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = () => {
         // Walidacja loginu
@@ -19,19 +22,17 @@ const LoginPage = () => {
             return;
         }
 
-
-
         // Jeśli dane logowania są poprawne, zapisz je w Local Storage
         localStorage.setItem('username', username);
         localStorage.setItem('password', password);
 
         // Przekieruj użytkownika do strony użytkownika po zalogowaniu
-        window.location.href = 'userPanel.html';
+        navigate('/userPanel');
     };
 
     return (
         // login form
-        <div className="container-main">
+        <div className="container-main loginPage">
             <div className="login-form">
                 <h1>Login</h1>
                 <div className="input-box">
@@ -55,14 +56,13 @@ const LoginPage = () => {
                     />
                 </div>
 
-                <button className="login-btn input-box" onClick={handleLogin}>Login</button>
+                <button onClick={handleLogin} className="login-btn input-box">Login</button>
                 {error && <div className="error">{error}</div>}
             </div>
         </div>
     );
-};
 
-const container = document.querySelector('.local')
-const root = createRoot(container)
-root.render(<LoginPage/>)
+
+
+};
 export default LoginPage;

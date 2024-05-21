@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { createRoot } from "react-dom/client";
-import UserPanel from "./userPanel.jsx";
+
+import { Link } from 'react-router-dom';
+
+import '../pages/_weather.scss';
 
 const apiKey = 'XRqnOs9+NKymcMEkekhr3g==nD3VIVUDcy0o3uvI';
 const city = 'Bydgoszcz';
@@ -35,9 +37,9 @@ const App = () => {
                 <div className="localName">Sprawdź pogode na dziś!</div>
             </header>
             <div className="aside">
-                <a href={'userPanel.html'} className="aside-content">Galeria psów</a>
-                <a href={'reservedDogs.html'} className="aside-content">Zarezerwowane psy</a>
-                <a href={'calculator.html'} className="aside-content">kalkulator</a>
+                <Link to="/userPanel" className="aside-content">Galeria psów</Link>
+                <Link to="/reservedDogs" className="aside-content">Zarezerwowane psy</Link>
+                <Link to="/calculator" className="aside-content">Kalkulator</Link>
             </div>
             <div className="weather">
                 {weatherData ? (
@@ -54,8 +56,6 @@ const App = () => {
     );
 };
 
-const dududupson = document.querySelector('.userPanel')
 
-const root = createRoot(dududupson)
-root.render(<App/>)
+
 export default App;

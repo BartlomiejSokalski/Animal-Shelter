@@ -1,6 +1,7 @@
 import React from 'react';
-import {createRoot} from "react-dom/client";
-import UserPanel from "./userPanel.jsx";
+
+import { Link } from 'react-router-dom';
+import '../pages/_dogAdoptForm.scss';
 
 const DogAdoptForm = () => {
     return (
@@ -9,10 +10,10 @@ const DogAdoptForm = () => {
                 <div className="localName"></div>
             </header>
             <div className="aside">
-                <a href={'userPanel.html'} className="aside-content">galeria psów</a>
-                <a href={'reservedDogs.html'} className="aside-content">Zarezerwowane psy</a>
-                <a href={'weather.html'} className="aside-content">pogoda</a>
-                <a href={'calculator.html'} className="aside-content">kalkulator</a>
+                <Link to={'/userPanel'} className="aside-content">galeria psów</Link>
+                <Link to={'/reservedDogs'} className="aside-content">Zarezerwowane psy</Link>
+                <Link to={'/weather'} className="aside-content">pogoda</Link>
+                <Link to={'/calculator'} className="aside-content">kalkulator</Link>
             </div>
             <form className="dogAdoptionForm">
                 <div className="dogAdoptionFormSelect">
@@ -50,8 +51,4 @@ const DogAdoptForm = () => {
     );
 };
 
-const dududupson = document.querySelector('.userPanel')
-
-const root = createRoot(dududupson)
-root.render(<DogAdoptForm/>)
-export default DogAdoptForm;
+export default DogAdoptForm

@@ -6,20 +6,17 @@
 }
 
 
-body {
+
+
+.loginPage {
   background-image: url("https://www.napo.pet/_next/image?url=https%3A%2F%2Fumbraco.napo.pet%2Fmedia%2Fcarj2bm4%2Fdog-cutout-labrador-confetticrown.png&w=3840&q=90&dpl=dpl_DiWWnXGRnzGteuK5GXh6Qzvge1ha");
-
-  background-size: contain  ;
-
-
-
-}
-
-.container-main {
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+
+
 
 }
 
@@ -99,5 +96,4 @@ a {
 .error {
  display: flex;
   justify-content: center;
-
 }

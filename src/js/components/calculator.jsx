@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
+import { Link } from 'react-router-dom';
+import '../pages/_calculator.scss';
 
 const Calculator = () => {
     const [showDiseaseOptions, setShowDiseaseOptions] = useState(false);
@@ -9,6 +11,7 @@ const Calculator = () => {
     const [sleepType, setSleepType] = useState('');
     const [dogSize, setDogSize] = useState('');
     const [shampooType, setShampooType] = useState('');
+    const [additionalCost, setAdditionalCost] = useState(0);
     const [checkboxesChecked, setCheckboxesChecked] = useState({
         disease: false,
         sleep: false,
@@ -23,8 +26,6 @@ const Calculator = () => {
         setDogSize(event.target.value);
     };
 
-    const [additionalCost, setAdditionalCost] = useState(0);
-
     const handleShampooTypeChange = (event) => {
         setShampooType(event.target.value);
     };
@@ -32,6 +33,7 @@ const Calculator = () => {
     const handleDiseaseTypeChange = (event) => {
         setDiseaseType(event.target.value);
     };
+
     const handleSleepTypeChange = (event) => {
         setSleepType(event.target.value);
     };
@@ -41,9 +43,8 @@ const Calculator = () => {
         setCheckboxesChecked(prevState => ({
             ...prevState,
             disease: !prevState.disease,
-            // Resetujemy wybrany typ choroby
-            diseaseType: ''
         }));
+        setDiseaseType(''); // Resetujemy wybrany typ choroby
     };
 
     const handleSleepCheckboxChange = () => {
@@ -51,36 +52,23 @@ const Calculator = () => {
         setCheckboxesChecked(prevState => ({
             ...prevState,
             sleep: !prevState.sleep,
-            // Resetujemy wybrane miejsce do spania dla psa
-            sleepType: ''
         }));
+        setSleepType(''); // Resetujemy wybrane miejsce do spania dla psa
     };
 
     const handleShampooCheckboxChange = () => {
         setShowShampooOptions(prevState => !prevState);
         setCheckboxesChecked(prevState => ({
             ...prevState,
-            shampoo: !prevState.shampoo
+            shampoo: !prevState.shampoo,
         }));
     };
 
     const handleCheckboxChange = (option) => {
         setCheckboxesChecked(prevState => ({
             ...prevState,
-            [option]: !prevState[option]
+            [option]: !prevState[option],
         }));
-    };
-
-    const handleSelectAll = () => {
-        setCheckboxesChecked({
-            disease: true,
-            sleep: true,
-            shampoo: true,
-            monthlyFood: true,
-            muzzle: true,
-            leash: true,
-            collar: true,
-        });
     };
 
     const handleClearAll = () => {
@@ -95,15 +83,12 @@ const Calculator = () => {
         });
     };
 
-    const calculateAdditionalCost = () => {
+    useEffect(() => {
         let cost = 0;
-        if (dogSize === 'duzy') {
-            cost += additionalCost * 2;
-        } else if (dogSize === 'maly') {
-            cost += additionalCost / 2;
-        } else {
-            cost += additionalCost;
-        }
+        if (checkboxesChecked.monthlyFood) cost += 20;
+        if (checkboxesChecked.collar) cost += 20;
+        if (checkboxesChecked.muzzle) cost += 20;
+        if (checkboxesChecked.leash) cost += 20;
 
         if (checkboxesChecked.shampoo) {
             if (showShampooOptions && shampooType === 'włosy') {
@@ -114,6 +99,7 @@ const Calculator = () => {
                 cost += 0;
             }
         }
+
         if (checkboxesChecked.disease && diseaseType) {
             switch (diseaseType) {
                 case 'białaczka':
@@ -155,17 +141,8 @@ const Calculator = () => {
             }
         }
 
-        return cost;
-    };
-
-    const handleCalculate = () => {
-        let cost = 0;
-        if (checkboxesChecked.monthlyFood) cost += 20;
-        if (checkboxesChecked.collar) cost += 20;
-        if (checkboxesChecked.muzzle) cost += 20;
-        if (checkboxesChecked.leash) cost += 20;
         setAdditionalCost(cost);
-    };
+    }, [checkboxesChecked, shampooType, diseaseType, sleepType, dogSize, showShampooOptions, showDiseaseOptions, showSleepOptions]);
 
     return (
         <div className="container-main">
@@ -173,33 +150,26 @@ const Calculator = () => {
                 <div className="localName"></div>
             </header>
             <div className="aside">
-                <a href={'userPanel.html'} className="aside-content">galeria psów</a>
-                <a href={'reservedDogs.html'} className="aside-content">Zarezerwowane psy</a>
-                <a href={'weather.html'} className="aside-content">pogoda</a>
-
+                <Link to="/userPanel" className="aside-content">galeria psów</Link>
+                <Link to="/reservedDogs" className="aside-content">Zarezerwowane psy</Link>
+                <Link to="/weather" className="aside-content">pogoda</Link>
             </div>
             <div className="calculator">
                 <div>
                     <form>
-                        <select className="calulatorSelect" value={dogSize} onChange={handleDogSizeChange}>
-                            <option>wybierz wielkość psa:</option>
-                            <option>duzy</option>
-                            <option>maly</option>
-                            <option>sredni</option>
-                        </select> <br/>
-
                         <div>
                             <input
                                 className="calculatorInput"
                                 type="checkbox"
                                 id="shampooCheckbox"
+                                checked={checkboxesChecked.shampoo}
                                 onChange={handleShampooCheckboxChange}
                             />
                             <label htmlFor="shampooCheckbox">szampon</label>
                         </div>
 
                         {showShampooOptions && (
-                            <select className="calculatorSelect" onChange={handleShampooTypeChange}>
+                            <select className="calculatorSelect" value={shampooType} onChange={handleShampooTypeChange}>
                                 <option>wybierz rodzaj szamponu:</option>
                                 <option>włosy</option>
                                 <option>sierść</option>
@@ -207,11 +177,12 @@ const Calculator = () => {
                             </select>
                         )}
 
-                        <div >
+                        <div>
                             <input
                                 className="calculatorInput"
                                 type="checkbox"
                                 id="diseaseCheckbox"
+                                checked={checkboxesChecked.disease}
                                 onChange={handleDiseaseCheckboxChange}
                             />
                             <label htmlFor="diseaseCheckbox">Choroby</label>
@@ -226,7 +197,7 @@ const Calculator = () => {
                                 <option value="problemy sercowe">problemy sercowe</option>
                                 <option value="problemy z nerkami">problemy z nerkami</option>
                                 <option value="nowotwór">nowotwór</option>
-                                <option value="problemy pokarmowe">problemy pokarmowe</option>
+                                <option value="prolemy pokarmowe">problemy pokarmowe</option>
                             </select>
                         )}
 
@@ -235,6 +206,7 @@ const Calculator = () => {
                                 className="calculatorInput"
                                 type="checkbox"
                                 id="sleepCheckbox"
+                                checked={checkboxesChecked.sleep}
                                 onChange={handleSleepCheckboxChange}
                             />
                             <label htmlFor="sleepCheckbox">spanie dla pieska</label>
@@ -296,25 +268,9 @@ const Calculator = () => {
                             <button
                                 type="button"
                                 className="btn btn-secondary"
-                                onClick={handleSelectAll}
-                            >
-                                Zaznacz wszystko
-                            </button>
-
-                            <button
-                                type="button"
-                                className="btn btn-secondary"
                                 onClick={handleClearAll}
                             >
                                 Wyczyść
-                            </button>
-
-                            <button
-                                type="button"
-                                className="btn btn-primary float-right"
-                                onClick={handleCalculate}
-                            >
-                                Policz
                             </button>
                         </div>
                     </form>
@@ -324,7 +280,7 @@ const Calculator = () => {
                     <div className="card bg-light">
                         <div className="card-body">
                             <p className="card-text">szacowane wydatki </p>
-                            <p className="card-text order-info">{calculateAdditionalCost()} zł</p>
+                            <p className="card-text order-info">{additionalCost} zł</p>
                         </div>
                     </div>
                 </div>
@@ -333,8 +289,5 @@ const Calculator = () => {
     );
 };
 
-const dududupson = document.querySelector('.userPanel');
-const root = createRoot(dududupson);
-root.render(<Calculator/>);
-
 export default Calculator;
+
