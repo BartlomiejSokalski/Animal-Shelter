@@ -58,7 +58,10 @@
 
   background-color: lightcoral;
 }
-
+.dogCvButton {
+  background-color: #ff6666;
+  margin: 1rem;
+}
 .dogCv {
   margin: 3rem;
   width: 70%;
@@ -230,4 +233,14 @@ ul {
   p {
     font-size: 12px;
   }
+}
+.dogCvHeaderButtons {
+display: flex;
+  justify-content: right;
+  width: 80vh;
+
+
+
+
+
 }

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { createRoot } from 'react-dom/client';
-import { Link } from 'react-router-dom';
-import '../pages/_calculator.scss';
+import { Link, useNavigate } from 'react-router-dom';
 import Weather from "./weather.jsx";
-import UserPanel from "./userPanel.jsx";
+import '../pages/_calculator.scss';
 
 const Calculator = () => {
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [showDiseaseOptions, setShowDiseaseOptions] = useState(false);
     const [showSleepOptions, setShowSleepOptions] = useState(false);
@@ -25,10 +24,6 @@ const Calculator = () => {
         collar: false,
     });
 
-    const handleDogSizeChange = (event) => {
-        setDogSize(event.target.value);
-    };
-
     const handleShampooTypeChange = (event) => {
         setShampooType(event.target.value);
     };
@@ -47,7 +42,7 @@ const Calculator = () => {
             ...prevState,
             disease: !prevState.disease,
         }));
-        setDiseaseType(''); // Resetujemy wybrany typ choroby
+        setDiseaseType('');
     };
 
     const handleSleepCheckboxChange = () => {
@@ -56,7 +51,7 @@ const Calculator = () => {
             ...prevState,
             sleep: !prevState.sleep,
         }));
-        setSleepType(''); // Resetujemy wybrane miejsce do spania dla psa
+        setSleepType('');
     };
 
     const handleShampooCheckboxChange = () => {
@@ -74,17 +69,7 @@ const Calculator = () => {
         }));
     };
 
-    const handleClearAll = () => {
-        setCheckboxesChecked({
-            disease: false,
-            sleep: false,
-            shampoo: false,
-            monthlyFood: false,
-            muzzle: false,
-            leash: false,
-            collar: false,
-        });
-    };
+
 
     useEffect(() => {
         let cost = 0;
@@ -159,15 +144,14 @@ const Calculator = () => {
         localStorage.removeItem('password');
         navigate('/login');
     };
+
     return (
         <div className="container-main-calculator">
             <header className="calculatorHeader">
-
                 <div className="localName">{username && `Witaj, ${username}! tutaj możesz obliczyć ile mniej więcej kosztuje utrzymanie psa`}</div>
-                <button onClick={handleLogout}>Wyloguj</button>
+                <button className={'calculatorButton'} onClick={handleLogout}>Wyloguj</button>
             </header>
             <div className="asideCalculator">
-
                 <Link to="/userPanel" className="asideCalculator-content">galeria psów</Link>
                 <Link to="/reservedDogs" className="asideCalculator-content">Zarezerwowane psy</Link>
                 <div className="weather">
@@ -177,17 +161,17 @@ const Calculator = () => {
             <div className="calculator">
                 <div>
                     <form>
-                        <div>
-                            <input
-                                className="calculatorInput"
-                                type="checkbox"
-                                id="shampooCheckbox"
-                                checked={checkboxesChecked.shampoo}
-                                onChange={handleShampooCheckboxChange}
-                            />
-                            <label htmlFor="shampooCheckbox">szampon</label>
+                        <div className="checkbox-wrapper">
+                            <label className="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    checked={checkboxesChecked.shampoo}
+                                    onChange={handleShampooCheckboxChange}
+                                />
+                                <span className="checkbox-custom"></span>
+                                <p>Szampon</p>
+                            </label>
                         </div>
-
                         {showShampooOptions && (
                             <select className="calculatorSelect" value={shampooType} onChange={handleShampooTypeChange}>
                                 <option>wybierz rodzaj szamponu:</option>
@@ -196,18 +180,17 @@ const Calculator = () => {
                                 <option>łysy</option>
                             </select>
                         )}
-
-                        <div>
-                            <input
-                                className="calculatorInput"
-                                type="checkbox"
-                                id="diseaseCheckbox"
-                                checked={checkboxesChecked.disease}
-                                onChange={handleDiseaseCheckboxChange}
-                            />
-                            <label htmlFor="diseaseCheckbox">Choroby</label>
+                        <div className="checkbox-wrapper">
+                            <label className="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    checked={checkboxesChecked.disease}
+                                    onChange={handleDiseaseCheckboxChange}
+                                />
+                                <span className="checkbox-custom"></span>
+                                <p>Choroby</p>
+                            </label>
                         </div>
-
                         {showDiseaseOptions && (
                             <select className="calculatorSelect" value={diseaseType} onChange={handleDiseaseTypeChange}>
                                 <option value="">wybierz chorobę:</option>
@@ -217,21 +200,20 @@ const Calculator = () => {
                                 <option value="problemy sercowe">problemy sercowe</option>
                                 <option value="problemy z nerkami">problemy z nerkami</option>
                                 <option value="nowotwór">nowotwór</option>
-                                <option value="prolemy pokarmowe">problemy pokarmowe</option>
+                                <option value="problemy pokarmowe">problemy pokarmowe</option>
                             </select>
                         )}
-
-                        <div>
-                            <input
-                                className="calculatorInput"
-                                type="checkbox"
-                                id="sleepCheckbox"
-                                checked={checkboxesChecked.sleep}
-                                onChange={handleSleepCheckboxChange}
-                            />
-                            <label htmlFor="sleepCheckbox">spanie dla pieska</label>
+                        <div className="checkbox-wrapper">
+                            <label className="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    checked={checkboxesChecked.sleep}
+                                    onChange={handleSleepCheckboxChange}
+                                />
+                                <span className="checkbox-custom"></span>
+                                <p>Spanie dla pieska</p>
+                            </label>
                         </div>
-
                         {showSleepOptions && (
                             <select className="calculatorSelect" value={sleepType} onChange={handleSleepTypeChange}>
                                 <option value="">wybierz miejsce do spania:</option>
@@ -239,67 +221,57 @@ const Calculator = () => {
                                 <option value="buda">buda</option>
                             </select>
                         )}
-
-                        <div>
-                            <input
-                                className="calculatorInput"
-                                type="checkbox"
-                                id="monthlyFoodCheckbox"
-                                checked={checkboxesChecked.monthlyFood}
-                                onChange={() => handleCheckboxChange('monthlyFood')}
-                            />
-                            <label htmlFor="monthlyFoodCheckbox">miesięczny zapas karmy</label>
+                        <div className="checkbox-wrapper">
+                            <label className="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    checked={checkboxesChecked.monthlyFood}
+                                    onChange={() => handleCheckboxChange('monthlyFood')}
+                                />
+                                <span className="checkbox-custom"></span>
+                                <p>Miesięczny zapas karmy</p>
+                            </label>
+                        </div>
+                        <div className="checkbox-wrapper">
+                            <label className="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    checked={checkboxesChecked.muzzle}
+                                    onChange={() => handleCheckboxChange('muzzle')}
+                                />
+                                <span className="checkbox-custom"></span>
+                                <p>Kaganiec</p>
+                            </label>
+                        </div>
+                        <div className="checkbox-wrapper">
+                            <label className="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    checked={checkboxesChecked.leash}
+                                    onChange={() => handleCheckboxChange('leash')}
+                                />
+                                <span className="checkbox-custom"></span>
+                                <p>Smycz</p>
+                            </label>
+                        </div>
+                        <div className="checkbox-wrapper">
+                            <label className="checkbox-label">
+                                <input
+                                    type="checkbox"
+                                    checked={checkboxesChecked.collar}
+                                    onChange={() => handleCheckboxChange('collar')}
+                                />
+                                <span className="checkbox-custom"></span>
+                                <p>Obroża</p>
+                            </label>
                         </div>
 
-                        <div>
-                            <input
-                                className="calculatorInput"
-                                type="checkbox"
-                                id="muzzleCheckbox"
-                                checked={checkboxesChecked.muzzle}
-                                onChange={() => handleCheckboxChange('muzzle')}
-                            />
-                            <label htmlFor="muzzleCheckbox">kaganiec</label>
-                        </div>
-
-                        <div>
-                            <input
-                                className="calculatorInput"
-                                type="checkbox"
-                                id="leashCheckbox"
-                                checked={checkboxesChecked.leash}
-                                onChange={() => handleCheckboxChange('leash')}
-                            />
-                            <label htmlFor="leashCheckbox">smycz</label>
-                        </div>
-
-                        <div>
-                            <input
-                                className="calculatorInput"
-                                type="checkbox"
-                                id="collarCheckbox"
-                                checked={checkboxesChecked.collar}
-                                onChange={() => handleCheckboxChange('collar')}
-                            />
-                            <label htmlFor="collarCheckbox">obroża</label>
-                        </div>
-
-                        <div className="btn-group mt-2">
-                            <button
-                                type="button"
-                                className="btn btn-secondary"
-                                onClick={handleClearAll}
-                            >
-                                Wyczyść
-                            </button>
-                        </div>
                     </form>
                 </div>
-
                 <div className="col" style={{ maxWidth: '300px' }}>
                     <div className="card bg-light">
                         <div className="card-body">
-                            <p className="card-text">szacowane wydatki </p>
+                            <p className="card-text">Szacowane wydatki</p>
                             <p className="card-text order-info">{additionalCost} zł</p>
                         </div>
                     </div>
@@ -310,4 +282,3 @@ const Calculator = () => {
 };
 
 export default Calculator;
-

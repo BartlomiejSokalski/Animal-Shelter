@@ -56,7 +56,7 @@ const ReservedDogs = () => {
         <div className="container-main-reservedDogs">
             <header className="reservedDogsHeader">
                 <div className="localName">Twoje zarezerwowane psy!</div>
-                <button onClick={handleLogout} className="logout-btn">Wyloguj</button>
+                <button  onClick={handleLogout} className='reservedDogsButtonCancel'>Wyloguj</button>
             </header>
             <div className="asideReservedDogs">
                 <Link to="/userPanel" className="asideReservedDogs-content">galeria psów</Link>
@@ -69,7 +69,7 @@ const ReservedDogs = () => {
                 {/* Wyświetl listę zapisanych psów */}
                 {allDogNames.map((dogName, index) => (
                     <div className="reservedDogsNotButtons" key={index}>
-                        <div className="reservedDogsList">numer {index + 1}
+                        <div className="reservedDogsList">psiak {index + 1}
                             <div>{dogName}</div> {/* Wyświetl imię psa */}
                             {/* Wyświetl daty dla każdego psa */}
                             <div className="reservedDates">
@@ -80,8 +80,8 @@ const ReservedDogs = () => {
                             </div>
                         </div>
                         <div className="resevedDogsButtons">
-                            <button onClick={() => handleCancelReservation(dogName)}>anuluj rezerwacje</button>
-                            <button onClick={() => handleEditReservation(dogName)}>edytuj date rezerwacji</button>
+                            <button className='reservedDogsButtonCancel' onClick={() => handleCancelReservation(dogName)}>anuluj rezerwacje</button>
+                            <button className='reservedDogsButtonEdit' onClick={() => handleEditReservation(dogName)}>edytuj date rezerwacji</button>
                         </div>
                     </div>
                 ))}

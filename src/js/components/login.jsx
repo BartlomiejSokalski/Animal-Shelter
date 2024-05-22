@@ -12,13 +12,13 @@ const LoginPage = () => {
     const handleLogin = () => {
         // Walidacja loginu
         if (username.length < 5 || username.length > 11) {
-            setError('Login musi mieć od 5 do 11 znaków');
+            setError('Login musi mieć od 9 do 11 znaków');
             return;
         }
 
         // Walidacja hasła
         if (!/(?=.*[A-Z])/.test(password) || password.length < 5 || password.length > 11) {
-            setError('Hasło musi zawierać co najmniej jedną dużą literę oraz mieć od 5 do 11 znaków');
+            setError('Hasło musi zawierać co najmniej jedną dużą literę oraz mieć od 9 do 11 znaków');
             return;
         }
 

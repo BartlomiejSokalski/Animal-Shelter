@@ -33,7 +33,7 @@ const UserPanel = () => {
         <div className="container-main-userPanel">
             <header className="userPanelHeader">
                 <div className="localName">Witaj! {username} tutaj znajdziesz wszystkie psy do adopcji</div>
-                <button onClick={handleLogout} className="logout-btn">Wyloguj</button>
+                <button  onClick={handleLogout} className="userPanelButton">Wyloguj</button>
             </header>
             <div className="userNameAside">
                 <Link to={'/reservedDogs'} className="userNameAside-content">Zarezerwowane psy</Link>

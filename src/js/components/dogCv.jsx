@@ -43,7 +43,7 @@ const DogCvPage = () => {
                 <div className={'dogCvHeaderButtons'}>
                     <Link to="/dogCalendar"><button>Zarezerwój</button></Link>
                     <Link to="/dogAdoptForm"><button>Adoptuj</button></Link>
-                    <button onClick={handleLogout}>Wyloguj</button>
+                    <button className={'dogCvButton'} onClick={handleLogout}>Wyloguj</button>
                 </div>
             </header>
             {/*boczny pasek zakładek*/}
