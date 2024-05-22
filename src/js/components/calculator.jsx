@@ -133,7 +133,8 @@ const Calculator = () => {
     }, [checkboxesChecked, shampooType, diseaseType, sleepType, dogSize, showShampooOptions, showDiseaseOptions, showSleepOptions]);
 
     useEffect(() => {
-        const storedUsername = localStorage.getItem('username');
+        const storedUserData = localStorage.getItem('userData');
+        const storedUsername = storedUserData ? JSON.parse(storedUserData).username : null;
         if (storedUsername) {
             setUsername(storedUsername);
         }
@@ -142,6 +143,7 @@ const Calculator = () => {
     const handleLogout = () => {
         localStorage.removeItem('username');
         localStorage.removeItem('password');
+        localStorage.removeItem('adoptedDogs');
         navigate('/login');
     };
 

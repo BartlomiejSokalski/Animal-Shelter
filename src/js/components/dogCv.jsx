@@ -4,42 +4,29 @@ import Weather from "./weather.jsx";
 import '../pages/_dogCv.scss';
 
 const DogCvPage = () => {
-    const [username, setUsername] = useState('');
-    const [selectedDogName, setSelectedDogName] = useState('');
-    const [selectedDogImageUrl, setSelectedDogImageUrl] = useState('');
+    const [userData, setUserData] = useState(() => {
+        const storedUserData = localStorage.getItem('userData');
+        return storedUserData ? JSON.parse(storedUserData) : null;
+    });
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Efekt pobierający nazwę użytkownika z local storage przy załadowaniu komponentu
-        const storedUsername = localStorage.getItem('username');
-        if (storedUsername) {
-            setUsername(storedUsername);
+        if (!userData) {
+            navigate('/login');
         }
-
-        // Pobierz imię psa z Local Storage
-        const storedDogName = localStorage.getItem('selectedDogName');
-        if (storedDogName) {
-            setSelectedDogName(storedDogName);
-        }
-
-        // Pobierz URL obrazka psa z Local Storage
-        const storedDogImageUrl = localStorage.getItem('selectedDogImageUrl');
-        if (storedDogImageUrl) {
-            setSelectedDogImageUrl(storedDogImageUrl);
-        }
-    }, []); // Pobieranie danych tylko raz przy załadowaniu komponentu
+    }, [userData, navigate]);
 
     const handleLogout = () => {
-        localStorage.removeItem('username');
-        localStorage.removeItem('password');
+        localStorage.removeItem('userData');
+        localStorage.removeItem('adoptedDogs');
         navigate('/login');
     };
 
     return (
         <div className="container-main-dogCv">
             <header className="dogCvHeader">
-                <div className="dogCvHeaderLogo">Logo</div>
-                <div className="localName">{username && ` ${username}`}</div>
+
+                <div className="localName">{userData && ` ${userData.username}`}</div>
                 <div className={'dogCvHeaderButtons'}>
                     <Link to="/dogCalendar"><button>Zarezerwój</button></Link>
                     <Link to="/dogAdoptForm"><button>Adoptuj</button></Link>
@@ -59,7 +46,9 @@ const DogCvPage = () => {
             <div className="dogCv">
                 <div className="dogCvAside">
                     {/* Wyświetl obrazek wybranego psa */}
-                    <img src={selectedDogImageUrl} alt={selectedDogName} />
+                    {userData && userData.selectedDogImageUrl && (
+                        <img src={userData.selectedDogImageUrl} alt={userData.selectedDogName} />
+                    )}
                     <div>co robie w wolnym czasie</div>
                     <ul>
                         <li>duzo szczekam</li>
@@ -83,7 +72,7 @@ const DogCvPage = () => {
                 {/*główny text psa*/}
                 <div className="dogCvMainContentHeader">
                     {/* Wyświetl imię wybranego psa */}
-                    <h1>Cześć jestem {selectedDogName}!, nie moge sie doczekać adopcji</h1>
+                    <h1>Cześć jestem {userData && userData.selectedDogName}!, nie moge sie doczekać adopcji</h1>
                     <p>jestem engergiczny i zabawny uwielbiam gryźć koty i kapcie ale za to jest przesłodki i nie jem aż tak dużo</p>
 
                     <div className="dogCvMainContentHistory">

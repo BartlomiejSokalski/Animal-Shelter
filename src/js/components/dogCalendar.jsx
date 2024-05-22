@@ -2,40 +2,52 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Weather from "./weather.jsx";
 import '../pages/_dogCalendar.scss';
+
 const DogCalendar = () => {
-    const [selectedDates, setSelectedDates] = useState(() => {
-        const storedDates = localStorage.getItem('selectedDates');
-        return storedDates ? JSON.parse(storedDates) : {};
+    const [userData, setUserData] = useState(() => {
+        const storedUserData = localStorage.getItem('userData');
+        return storedUserData ? JSON.parse(storedUserData) : null;
     });
+
     const navigate = useNavigate();
 
-    const handleDayClick = (date) => {
-        const selectedDog = localStorage.getItem('selectedDogName');
-        const updatedSelectedDates = { ...selectedDates };
+    useEffect(() => {
+        if (!userData) {
+            navigate('/login');
+        }
+    }, [userData, navigate]);
 
-        if (!updatedSelectedDates[selectedDog]) {
-            updatedSelectedDates[selectedDog] = [];
+    const handleDayClick = (date) => {
+        if (!userData || !userData.selectedDogName || !userData.selectedDogImageUrl) return;
+
+        const updatedSelectedDates = { ...userData.selectedDates };
+        const dogName = userData.selectedDogName;
+
+        if (!updatedSelectedDates[dogName]) {
+            updatedSelectedDates[dogName] = [];
         }
 
-        updatedSelectedDates[selectedDog] = updatedSelectedDates[selectedDog].includes(date)
-            ? updatedSelectedDates[selectedDog].filter(d => d !== date)
-            : [...updatedSelectedDates[selectedDog], date];
+        updatedSelectedDates[dogName] = updatedSelectedDates[dogName].includes(date)
+            ? updatedSelectedDates[dogName].filter(d => d !== date)
+            : [...updatedSelectedDates[dogName], date];
 
-        localStorage.setItem('selectedDates', JSON.stringify(updatedSelectedDates));
-        setSelectedDates(updatedSelectedDates);
+        const updatedUserData = {
+            ...userData,
+            selectedDates: updatedSelectedDates,
+        };
+        localStorage.setItem('userData', JSON.stringify(updatedUserData));
+        setUserData(updatedUserData);
     };
 
     const isDateSelected = (date) => {
-        const selectedDog = localStorage.getItem('selectedDogName');
-        return selectedDates[selectedDog] && selectedDates[selectedDog].includes(date);
+        return userData?.selectedDates?.[userData.selectedDogName]?.includes(date);
     };
 
     const handleLogout = () => {
-        localStorage.removeItem('username');
-        localStorage.removeItem('password');
+        localStorage.removeItem('userData');
+        localStorage.removeItem('adoptedDogs');
         navigate('/login');
     };
-
 
     return (
         <div className="container-main-dogCalendar">
@@ -83,7 +95,7 @@ const DogCalendar = () => {
                         className={isDateSelected('05.02') ? 'dogCalendarDay selected' : 'dogCalendarDay'}
                         onClick={() => handleDayClick('05.02')}
                     >
-                        piatek <br />05.02
+                        piątek <br />05.02
                     </button>
                     <button
                         className={isDateSelected('06.02') ? 'dogCalendarDay selected' : 'dogCalendarDay'}
@@ -103,7 +115,7 @@ const DogCalendar = () => {
                         className={isDateSelected('08.02') ? 'dogCalendarDay selected' : 'dogCalendarDay'}
                         onClick={() => handleDayClick('08.02')}
                     >
-                        poniedzialek <br />08.02
+                        poniedziałek <br />08.02
                     </button>
                     <button
                         className={isDateSelected('09.02') ? 'dogCalendarDay selected' : 'dogCalendarDay'}
@@ -191,7 +203,7 @@ const DogCalendar = () => {
                         className={isDateSelected('22.02') ? 'dogCalendarDay selected' : 'dogCalendarDay'}
                         onClick={() => handleDayClick('22.02')}
                     >
-                        poniedzialek <br />22.02
+                        poniedziałek <br />22.02
                     </button>
                     <button
                         className={isDateSelected('23.02') ? 'dogCalendarDay selected' : 'dogCalendarDay'}

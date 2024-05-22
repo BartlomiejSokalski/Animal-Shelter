@@ -1,54 +1,37 @@
-// ReservedDogs.jsx
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../pages/_reservedDogs.scss';
 import Weather from "./weather.jsx";
 
 const ReservedDogs = () => {
-    const [allDogNames, setAllDogNames] = useState([]);
-    const [allDogDates, setAllDogDates] = useState([]);
+    const [userData, setUserData] = useState(() => {
+        const storedUserData = localStorage.getItem('userData');
+        return storedUserData ? JSON.parse(storedUserData) : null;
+    });
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Pobierz wszystkie imiona zapisanych psów z localStorage
-        const storedDogNames = Object.keys(localStorage)
-            .filter(key => key.startsWith('selectedDates'))
-            .map(key => JSON.parse(localStorage.getItem(key)))
-            .map(selectedDates => Object.keys(selectedDates))
-            .flat();
-        setAllDogNames(storedDogNames);
+        if (!userData) {
+            navigate('/login');
+        }
+    }, [userData, navigate]);
 
-        // Pobierz daty dla wszystkich zapisanych psów z localStorage
-        const storedDogDates = Object.keys(localStorage)
-            .filter(key => key.startsWith('selectedDates'))
-            .map(key => JSON.parse(localStorage.getItem(key)))
-            .map(selectedDates => Object.values(selectedDates))
-            .flat();
-        setAllDogDates(storedDogDates);
-    }, []);
-
-    const handleCancelReservation = (dogName) => {
-        // Usuń daty dla wybranego psa z localStorage
-        const storedDates = JSON.parse(localStorage.getItem('selectedDates'));
-        delete storedDates[dogName];
-        localStorage.setItem('selectedDates', JSON.stringify(storedDates));
-
-        // Aktualizuj stan
-        setAllDogNames(allDogNames.filter(name => name !== dogName));
-        setAllDogDates(allDogDates.filter((date, idx) => allDogNames[idx] !== dogName));
-    };
-
-    const handleEditReservation = (dogName) => {
-        // Zapisz wybranego psa do localStorage
-        localStorage.setItem('selectedDogName', dogName);
-
-        // Przekieruj do strony dogCalendar
-        navigate('/dogCalendar');
+    const handleClearReservation = (dogName) => {
+        if (userData && userData.selectedDates) {
+            const updatedSelectedDates = { ...userData.selectedDates };
+            delete updatedSelectedDates[dogName]; // Usuń daty dla wybranego psa
+            const updatedUserData = {
+                ...userData,
+                selectedDates: updatedSelectedDates,
+            };
+            localStorage.setItem('userData', JSON.stringify(updatedUserData));
+            setUserData(updatedUserData);
+        }
     };
 
     const handleLogout = () => {
-        localStorage.removeItem('username');
-        localStorage.removeItem('password');
+        localStorage.removeItem('userData');
+        localStorage.removeItem('adoptedDogs');
         navigate('/login');
     };
 
@@ -56,7 +39,7 @@ const ReservedDogs = () => {
         <div className="container-main-reservedDogs">
             <header className="reservedDogsHeader">
                 <div className="localName">Twoje zarezerwowane psy!</div>
-                <button  onClick={handleLogout} className='reservedDogsButtonCancel'>Wyloguj</button>
+                <button onClick={handleLogout} className='reservedDogsButtonCancel'>Wyloguj</button>
             </header>
             <div className="asideReservedDogs">
                 <Link to="/userPanel" className="asideReservedDogs-content">galeria psów</Link>
@@ -67,21 +50,16 @@ const ReservedDogs = () => {
             </div>
             <div className="reservedDogs">
                 {/* Wyświetl listę zapisanych psów */}
-                {allDogNames.map((dogName, index) => (
+                {userData && userData.selectedDates && Object.keys(userData.selectedDates).map((dogName, index) => (
                     <div className="reservedDogsNotButtons" key={index}>
-                        <div className="reservedDogsList">psiak {index + 1}
+                        <div className="reservedDogsList">
+                            <div>Psyak {index + 1}</div>
                             <div>{dogName}</div> {/* Wyświetl imię psa */}
                             {/* Wyświetl daty dla każdego psa */}
                             <div className="reservedDates">
-                                {allDogDates
-                                    .filter((date, idx) => allDogNames[idx] === dogName)
-                                    .join(', ')
-                                }
+                                {userData.selectedDates[dogName].join(', ')}
                             </div>
-                        </div>
-                        <div className="resevedDogsButtons">
-                            <button className='reservedDogsButtonCancel' onClick={() => handleCancelReservation(dogName)}>anuluj rezerwacje</button>
-                            <button className='reservedDogsButtonEdit' onClick={() => handleEditReservation(dogName)}>edytuj date rezerwacji</button>
+                            <button onClick={() => handleClearReservation(dogName)} className="reservedDogsButtonCancel">Usuń rezerwację</button>
                         </div>
                     </div>
                 ))}

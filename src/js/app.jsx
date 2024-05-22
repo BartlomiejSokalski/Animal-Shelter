@@ -11,6 +11,7 @@ import ReservedDogs from "./components/reservedDogs.jsx";
 import DogCalendar from "./components/dogCalendar.jsx";
 import Weather from "./components/weather.jsx";
 import DogAdoptForm from "./components/dogAdoptForm.jsx";
+import LoginPage from "./components/login.jsx";
 
 
 
@@ -22,7 +23,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<LandingPage/>}/>
-                <Route path='/login' element={<Login/>}/>
+                <Route path='/login' element={<LoginPage/>}/>
                 <Route path='/userPanel' element={<UserPanel/>}/>
                 <Route path='/dogCv' element={<DogCvPage/>}/>
                 <Route path='/Calculator' element={<Calculator/>}/>
