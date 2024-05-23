@@ -53,7 +53,7 @@ const ReservedDogs = () => {
                 {userData && userData.selectedDates && Object.keys(userData.selectedDates).map((dogName, index) => (
                     <div className="reservedDogsNotButtons" key={index}>
                         <div className="reservedDogsList">
-                            <div>Psyak {index + 1}</div>
+                            <div>psiak {index + 1}</div>
                             <div>{dogName}</div> {/* Wyświetl imię psa */}
                             {/* Wyświetl daty dla każdego psa */}
                             <div className="reservedDates">

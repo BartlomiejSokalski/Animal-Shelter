@@ -84,14 +84,8 @@ const DogCvPage = () => {
                         <p> zjadam około tyle karmy a leki dla malego psa koszuja od $ do $ zł</p>
                     </div>
                     <div className="dogCvNainContetGallery">
-                        <h3>  tutaj jest wiecej moich zdjęć!</h3>
-                        <div className="gallery">
-                            {/* Tutaj wyświetl dodatkowe zdjęcia psa */}
-                            <img src="" alt="" />
-                            <img src="" alt="" />
-                            <img src="" alt="" />
-                            <img src="" alt="" />
-                        </div>
+                        <h3> Wiecej o mnie powie ci moja pani w schronisku!</h3>
+
                     </div>
                 </div>
             </div>

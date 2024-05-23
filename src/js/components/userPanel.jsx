@@ -59,7 +59,7 @@ const UserPanel = () => {
                     <div className="userPanelDogCards" key={index}>
                         <Link to="/dogCv" onClick={() => handleDogClick(dog.name, dog.imageUrl)}>
                             <img src={dog.imageUrl} alt={dog.name} />
-                            <p><div className={adoptedDogs.includes(dog.name) ? 'adoptedDogName' : 'dogName'}>{dog.name}</div></p>
+                            <div><p className={adoptedDogs.includes(dog.name) ? 'adoptedDogName' : 'dogName'}>{dog.name}</p></div>
                             {adoptedDogs.includes(dog.name) && <p className="adoptedStatus">Zaadoptowany</p>}
                         </Link>
                     </div>
