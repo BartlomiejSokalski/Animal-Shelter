@@ -36,6 +36,7 @@ const ReservedDogs = () => {
     };
 
     return (
+
         <div className="container-main-reservedDogs">
             <header className="reservedDogsHeader">
                 <div className="localName">Twoje zarezerwowane psy!</div>
