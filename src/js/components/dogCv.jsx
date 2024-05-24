@@ -9,13 +9,13 @@ const DogCvPage = () => {
         return storedUserData ? JSON.parse(storedUserData) : null;
     });
     const navigate = useNavigate();
-
+// przy wylogowaniu przenies na strone loginpage
     useEffect(() => {
         if (!userData) {
             navigate('/login');
         }
     }, [userData, navigate]);
-
+// logout
     const handleLogout = () => {
         localStorage.removeItem('userData');
         localStorage.removeItem('adoptedDogs');

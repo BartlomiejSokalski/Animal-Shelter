@@ -8,7 +8,7 @@ const DogCalendar = () => {
         const storedUserData = localStorage.getItem('userData');
         return storedUserData ? JSON.parse(storedUserData) : null;
     });
-
+// przy wylogowaniu przejdz na loginpage
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const DogCalendar = () => {
             navigate('/login');
         }
     }, [userData, navigate]);
-
+// zaznaczanie daty
     const handleDayClick = (date) => {
         if (!userData || !userData.selectedDogName || !userData.selectedDogImageUrl) return;
 
@@ -38,7 +38,7 @@ const DogCalendar = () => {
         localStorage.setItem('userData', JSON.stringify(updatedUserData));
         setUserData(updatedUserData);
     };
-
+// sprawdzanie zaznaczeń
     const isDateSelected = (date) => {
         return userData?.selectedDates?.[userData.selectedDogName]?.includes(date);
     };

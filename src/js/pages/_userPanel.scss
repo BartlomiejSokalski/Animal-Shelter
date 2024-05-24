@@ -32,14 +32,14 @@
 }
 
 .userNameAside {
-  width: 20%; /* Szerokość aside */
+  width: 20%;
 
-  max-width: 20vh; /* Maksymalna szerokość */
+  max-width: 20vh;
   color: black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-self: flex-start; /* Elementy .userNameAside są wyświetlane z lewej strony */
+  align-self: flex-start;
 }
 .userPanelButton {
   background-color: #ff6666;
@@ -97,7 +97,7 @@ p {
   align-items: center;
 }
 
-/* Media Queries for responsiveness */
+
 
 @media (max-width: 1200px) {
   .userPanelMainContent {

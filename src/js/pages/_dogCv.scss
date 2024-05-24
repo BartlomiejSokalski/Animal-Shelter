@@ -30,18 +30,18 @@
 
 .dogCvHeaderLogo {
 
-  text-align: center; /* Tekst w logo jest wyśrodkowany */
+  text-align: center;
 }
 
 .aside {
-  width: 20%; /* Szerokość aside */
+  width: 20%;
 
-  max-width: 20vh; /* Maksymalna szerokość */
+  max-width: 20vh;
   color: black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-self: flex-start; /* Elementy .aside są wyświetlane z lewej strony */
+  align-self: flex-start;
 }
 
 .aside-content {
@@ -71,7 +71,7 @@
 }
 
 .dogCvAside {
-  width: 40%; /* Szerokość .dogCvAside */
+  width: 40%;
 
 
   display: flex;
@@ -79,8 +79,8 @@
 }
 
 .dogCvMainContentHeader {
-  width: 100%; /* Szerokość głównej treści */
-  max-width: 75vh; /* Maksymalna szerokość */
+  width: 100%;
+  max-width: 75vh;
   margin: 1rem;
   display: flex;
   flex-direction: column;
@@ -121,7 +121,7 @@ ul {
   margin: 2rem;
 }
 
-/* Media Queries for responsiveness */
+
 
 @media (max-width: 1200px) {
   .dogCv {

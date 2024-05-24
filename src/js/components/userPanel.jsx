@@ -9,25 +9,25 @@ const UserPanel = () => {
         return storedUserData ? JSON.parse(storedUserData) : null;
     });
     const navigate = useNavigate();
-
+// przenies do login page jak wylogujesz
     useEffect(() => {
         if (!userData) {
             navigate('/login');
         }
     }, [userData, navigate]);
-
+// przenoszenie do wybranego psa w dogCv
     const handleDogClick = (dogName, imageUrl) => {
         const updatedUserData = { ...userData, selectedDogName: dogName, selectedDogImageUrl: imageUrl };
         localStorage.setItem('userData', JSON.stringify(updatedUserData));
         setUserData(updatedUserData);
     };
-
+// logout
     const handleLogout = () => {
         localStorage.removeItem('userData');
         localStorage.removeItem('adoptedDogs');
         navigate('/login');
     };
-
+// psy i zdjecia
     const dogs = [
         { name: 'brajan', imageUrl: 'https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg' },
         { name: 'kubson', imageUrl: 'https://hips.hearstapps.com/ghk.h-cdn.co/assets/16/08/gettyimages-530330473.jpg?crop=0.659xw:0.990xh;0.123xw,0.00779xh&resize=980:*' },

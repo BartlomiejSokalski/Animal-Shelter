@@ -27,12 +27,12 @@
 .asideReservedDogs {
   width: 20%;
 
-  max-width: 20vh; /* Maksymalna szerokość */
+  max-width: 20vh;
   color: black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-self: flex-start; /* Elementy .asideReservedDogs są wyświetlane z lewej strony */
+  align-self: flex-start;
 }
 
 .asideReservedDogs-content {
@@ -60,7 +60,7 @@
 
 .reservedDogs {
   margin: 1rem;
-  width: 80%; /* Możesz dostosować szerokość */
+  width: 80%;
 }
 
 .reservedDogsList {
@@ -76,7 +76,7 @@
   justify-content: center;
 }
 
-/* Media Queries */
+
 @media screen and (max-width: 1200px) {
   .reservedDogs {
     justify-content: center;

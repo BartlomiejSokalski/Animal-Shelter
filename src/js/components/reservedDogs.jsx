@@ -15,7 +15,7 @@ const ReservedDogs = () => {
             navigate('/login');
         }
     }, [userData, navigate]);
-
+// usuń rezerwacje
     const handleClearReservation = (dogName) => {
         if (userData && userData.selectedDates) {
             const updatedSelectedDates = { ...userData.selectedDates };
@@ -28,7 +28,7 @@ const ReservedDogs = () => {
             setUserData(updatedUserData);
         }
     };
-
+// logout
     const handleLogout = () => {
         localStorage.removeItem('userData');
         localStorage.removeItem('adoptedDogs');

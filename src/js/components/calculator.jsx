@@ -23,7 +23,7 @@ const Calculator = () => {
         leash: false,
         collar: false,
     });
-
+// dropdowny
     const handleShampooTypeChange = (event) => {
         setShampooType(event.target.value);
     };
@@ -35,7 +35,7 @@ const Calculator = () => {
     const handleSleepTypeChange = (event) => {
         setSleepType(event.target.value);
     };
-
+// wybieranie
     const handleDiseaseCheckboxChange = () => {
         setShowDiseaseOptions(prevState => !prevState);
         setCheckboxesChecked(prevState => ({
@@ -69,7 +69,7 @@ const Calculator = () => {
         }));
     };
 
-
+// checkboxy
 
     useEffect(() => {
         let cost = 0;
@@ -87,7 +87,7 @@ const Calculator = () => {
                 cost += 0;
             }
         }
-
+// zliczanie swich
         if (checkboxesChecked.disease && diseaseType) {
             switch (diseaseType) {
                 case 'białaczka':
@@ -131,7 +131,7 @@ const Calculator = () => {
 
         setAdditionalCost(cost);
     }, [checkboxesChecked, shampooType, diseaseType, sleepType, dogSize, showShampooOptions, showDiseaseOptions, showSleepOptions]);
-
+// username
     useEffect(() => {
         const storedUserData = localStorage.getItem('userData');
         const storedUsername = storedUserData ? JSON.parse(storedUserData).username : null;
@@ -139,7 +139,7 @@ const Calculator = () => {
             setUsername(storedUsername);
         }
     }, []);
-
+// logout
     const handleLogout = () => {
         localStorage.removeItem('username');
         localStorage.removeItem('password');

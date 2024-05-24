@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, Component} from 'react';
 import { Link } from 'react-router-dom';
 import '../pages/_weather.scss';
 
@@ -7,7 +7,7 @@ const city = 'Bydgoszcz';
 
 const Weather = () => {
     const [weatherData, setWeatherData] = useState(null);
-
+// pobierz dane z api
     useEffect(() => {
         fetch(`https://api.api-ninjas.com/v1/weather?city=${city}`, {
             headers: {

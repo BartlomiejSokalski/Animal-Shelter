@@ -20,14 +20,14 @@ const DogAdoptForm = () => {
         phone: ''
     });
     const [errors, setErrors] = useState({});
-
+// logout
     const handleLogout = () => {
         localStorage.removeItem('username');
         localStorage.removeItem('password');
         localStorage.removeItem('adoptedDogs');
         navigate('/login');
     };
-
+// username
     useEffect(() => {
         const storedUsername = localStorage.getItem('username');
         const storedAdoptedDogs = JSON.parse(localStorage.getItem('adoptedDogs')) || [];
@@ -36,7 +36,7 @@ const DogAdoptForm = () => {
         }
         setAdoptedDogs(storedAdoptedDogs);
     }, []);
-
+// validacja forlumarza
     const validate = () => {
         const newErrors = {};
 
@@ -51,7 +51,7 @@ const DogAdoptForm = () => {
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
-
+// ustawianie pies adoptowany
     const handleAdopt = (e) => {
         e.preventDefault();
         if (validate()) {
@@ -79,7 +79,7 @@ const DogAdoptForm = () => {
             [name]: newValue
         });
     };
-
+// submit
     const handleSubmit = (e) => {
         e.preventDefault();
         alert('Formularz został przesłany!');
