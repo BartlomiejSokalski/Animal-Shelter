@@ -48,9 +48,10 @@ const ReservedDogs = () => {
                 <div className="weather">
                     <Weather />
                 </div>
+                <div className={'userNameAside-pretty'}></div>
             </div>
             <div className="reservedDogs">
-                {/* Wyświetl listę zapisanych psów */}
+            {/* Wyświetl listę zapisanych psów */}
                 {userData && userData.selectedDates && Object.keys(userData.selectedDates).map((dogName, index) => (
                     <div className="reservedDogsNotButtons" key={index}>
                         <div className="reservedDogsList">

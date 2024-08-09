@@ -3,7 +3,7 @@
     "browser": true,
     "node": true
   },
-  "extends": ["react-app", "eslint:recommended", "prettier"],
+  "extends": ["eslint:recommended", "prettier"],
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": "latest"

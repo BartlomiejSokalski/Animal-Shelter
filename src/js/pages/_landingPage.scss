@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.paw-logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.btn-logo {
+  font-size: 1.8rem;
+  color: #343a40;
+}
+
+.header-hrefs {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-header {
+  padding:  20px;
+  background-color: #ff6666;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.btn-header:hover {
+  padding: 20px;
+}
+
+.landingPageMain-content {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.header-main-img {
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 20px;
+}
+
+.landingPageMainImg {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.landingPageSideCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.landingPageSidecard {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+}
+
+.landingPageSidecardReasons {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.landingPageDoctors {
+  width: 100%;
+  margin: 40px 0;
+}
+
+.landingPageDoctorsBox {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.landingPageDoctorsScrolable {
+  display: flex;
+  gap: 20px;
+}
+
+.landingPageDoctorsPhoto {
+  min-width: 200px;
+}
+
+.landingPageDoctorsImg {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.footer-main {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

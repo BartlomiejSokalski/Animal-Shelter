@@ -62,10 +62,14 @@
 }
 
 .userPanelMainContent {
-  width: 80%;
+  margin: 1rem;
+  width: 87%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .userPanelDogCards {

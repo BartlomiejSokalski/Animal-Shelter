@@ -62,10 +62,11 @@ const DogCalendar = () => {
                 <div className="weather">
                     <Weather />
                 </div>
+                <div className={'userNameAside-pretty'}></div>
             </div>
 
             <div className="dogCalendar">
-                <div className="dogCalendarDate">Zarezerwój psy na 02.2025</div>
+            <div className="dogCalendarDate">Zarezerwój psy na 02.2025</div>
                 <div className="dogCalendarWeek">week1
                     <button
                         className={isDateSelected('01.02') ? 'dogCalendarDay selected' : 'dogCalendarDay'}

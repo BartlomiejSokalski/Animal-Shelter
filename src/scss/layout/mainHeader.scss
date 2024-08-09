@@ -1,3 +1,5 @@
+
+
 .header-main {
   z-index: 99999999;
   display: flex;
@@ -42,11 +44,10 @@
 }
 
 .btn-header{
+  margin-top: 0;
   color: white;
-  padding:  2.5rem;
+  padding:  2.4rem;
   border: none;
-
-
   background-color: transparent;
 }
 .btn-header:hover{
@@ -54,6 +55,6 @@
   background-color: #362727;
   color: #100e0e;
   border: 0 solid white;
-  padding: 2.5rem;
+  padding: 2.4rem;
 
 }

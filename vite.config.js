@@ -1,7 +1,16 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
 
+/**
+ * Path to exercise folder
+ */
+const exercisePath = "";
 
+/**
+ * Don't change those lines below
+ */
 export default defineConfig({
-  plugins: [react()],
-})
+  root: exercisePath,
+  server: {
+    port: 3000,
+  },
+});

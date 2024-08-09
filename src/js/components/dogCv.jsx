@@ -41,6 +41,7 @@ const DogCvPage = () => {
                 <div className="weather">
                     <Weather />
                 </div>
+                <div className={'userNameAside-pretty'}></div>
             </div>
             {/*info pod zdjeciem psa*/}
             <div className="dogCv">

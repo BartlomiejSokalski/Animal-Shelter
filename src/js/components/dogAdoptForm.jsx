@@ -99,6 +99,7 @@ const DogAdoptForm = () => {
                 <div className="weather">
                     <Weather />
                 </div>
+                <div className={'userNameAside-pretty'}></div>
             </div>
             <form className="dogAdoptionForm">
                 <div className="dogAdoptionFormSelect">

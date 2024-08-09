@@ -159,9 +159,10 @@ const Calculator = () => {
                 <div className="weather">
                     <Weather />
                 </div>
+                <div className={'userNameAside-pretty'}></div>
             </div>
             <div className="calculator">
-                <div>
+            <div>
                     <form>
                         <div className="checkbox-wrapper">
                             <label className="checkbox-label">

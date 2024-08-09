@@ -53,6 +53,7 @@ const UserPanel = () => {
                 <div className="weather">
                     <Weather />
                 </div>
+                <div className={'userNameAside-pretty'}></div>
             </div>
             <div className="userPanelMainContent">
                 {dogs.map((dog, index) => (
