@@ -21,7 +21,7 @@ const LandingPage = () => {
               </header>
               <div className="landingPageMain-content">
                   <div className="header-main-img">
-                      <img className="landingPageMainImg" src="src/images/psy.jpg" alt="Dogs" />
+                      <img className="landingPageMainImg" src="https://png.pngtree.com/background/20230612/original/pngtree-large-number-of-breeds-of-dogs-picture-image_3176576.jpg" alt="Dogs" />
                   </div>
                   <div className="landingPageSideCards">
                       <div className="landingPageSidecard">
@@ -66,11 +66,11 @@ const LandingPage = () => {
                       <div className="landingPageDoctorsBox">
                           <div className="landingPageDoctorsScrolable">
                               <div className="landingPageDoctorsPhoto">
-                                  <img className="landingPageDoctorsImg" src="src/images/lekarz1.jpg" alt="Doctor 1" />
+                                  <img className="landingPageDoctorsImg" src="https://pawelczyk-kozik.pl/wp-content/uploads/2021/04/Formy-zatrudnienia-lekarzy-w-placowce-medycznej.jpg" alt="Doctor 1" />
                                   <p>Doktor habilitowany maja kwaśniewska</p>
                               </div>
                               <div className="landingPageDoctorsPhoto">
-                                  <img className="landingPageDoctorsImg" src="src/images/lekarz2.jpg" alt="Doctor 2" />
+                                  <img className="landingPageDoctorsImg" src="https://answer.com.pl/wp-content/uploads/2017/11/LEKARZ.jpg" alt="Doctor 2" />
                                   <p>lekarz weterynarri hubert pocoń</p>
                               </div>
                           </div>
